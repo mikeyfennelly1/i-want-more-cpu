@@ -1,0 +1,17 @@
+= cgroup demonstration
+
+A demonstration of control group throttling on cgroupv2.
+
+== Running the demonstration
+
+=== Create the cgroup
+
+There is a program in this repo to create a control group via a C program which uses the systemd dbus API. This file is called `create_cgroup.c`.
+
+=== Run a CPU intensive program
+
+== Explanation
+
+=== How the cgroup was created
+
+- Use the DBus API (via the libsystemd library) to create a systemd cgroup unit.
