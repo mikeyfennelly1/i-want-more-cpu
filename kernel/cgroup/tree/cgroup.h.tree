@@ -1,0 +1,89 @@
+cgroup_account_cputime() <inline void cgroup_account_cputime (struct task_struct *task, u64 delta_exec) at ./cgroup.h:764>:
+    cpuacct_charge() <inline void cpuacct_charge (struct task_struct *tsk, u64 cputime) at ./cgroup.h:728>
+    task_dfl_cgroup() <inline struct cgroup *task_dfl_cgroup (struct task_struct *task) at ./cgroup.h:514>:
+        task_css_set() <inline struct css_set *task_css_set (struct task_struct *task) at ./cgroup.h:445>:
+            task_css_set_check()
+    cgroup_parent() <inline struct cgroup *cgroup_parent (struct cgroup *cgrp) at ./cgroup.h:694>:
+        container_of()
+cgroup_account_cputime_field() <inline void cgroup_account_cputime_field (struct task_struct *task, enum cpu_usage_stat index, u64 delta_exec) at ./cgroup.h:766>:
+    cpuacct_account_field() <inline void cpuacct_account_field (struct task_struct *tsk, int index, u64 val) at ./cgroup.h:729>
+    task_dfl_cgroup() <inline struct cgroup *task_dfl_cgroup (struct task_struct *task) at ./cgroup.h:514>:
+        task_css_set() <inline struct css_set *task_css_set (struct task_struct *task) at ./cgroup.h:445>:
+            task_css_set_check()
+    cgroup_parent() <inline struct cgroup *cgroup_parent (struct cgroup *cgrp) at ./cgroup.h:694>:
+        container_of()
+cgroup_ancestor() <inline struct cgroup *cgroup_ancestor (struct cgroup *cgrp, int ancestor_level) at ./cgroup.h:556>:
+cgroup_attach_task_all() <inline int cgroup_attach_task_all (struct task_struct *from, struct task_struct *t) at ./cgroup.h:672>
+cgroup_bpf_get() <inline void cgroup_bpf_get (struct cgroup *cgrp) at ./cgroup.h:833>:
+    percpu_ref_get()
+cgroup_bpf_put() <inline void cgroup_bpf_put (struct cgroup *cgrp) at ./cgroup.h:834>:
+    percpu_ref_put()
+cgroup_can_fork() <inline int cgroup_can_fork (struct task_struct *p, struct kernel_clone_args *kargs) at ./cgroup.h:678>
+cgroup_cancel_fork() <inline void cgroup_cancel_fork (struct task_struct *p, struct kernel_clone_args *kargs) at ./cgroup.h:680>
+cgroup_enter_frozen() <inline void cgroup_enter_frozen (void) at ./cgroup.h:811>
+cgroup_fork() <inline void cgroup_fork (struct task_struct *p) at ./cgroup.h:677>
+cgroup_get() <inline void cgroup_get (struct cgroup *cgrp) at ./cgroup.h:375>:
+    css_get() <inline void css_get (struct cgroup_subsys_state *css) at ./cgroup.h:668>
+cgroup_id() <inline u64 cgroup_id (const struct cgroup *cgrp) at ./cgroup.h:667>
+cgroup_init() <inline int cgroup_init (void) at ./cgroup.h:690>
+cgroup_init_early() <inline int cgroup_init_early (void) at ./cgroup.h:689>
+cgroup_init_kthreadd() <inline void cgroup_init_kthreadd (void) at ./cgroup.h:691>:
+cgroup_ino() <inline ino_t cgroup_ino (struct cgroup *cgrp) at ./cgroup.h:589>:
+    kernfs_ino()
+cgroup_is_populated() <inline bool cgroup_is_populated (struct cgroup *cgrp) at ./cgroup.h:582>
+cgroup_kthread_ready() <inline void cgroup_kthread_ready (void) at ./cgroup.h:692>:
+cgroup_leave_frozen() <inline void cgroup_leave_frozen (bool always_leave) at ./cgroup.h:812>
+cgroup_lock() <inline void cgroup_lock (void) at ./cgroup.h:670>:
+    mutex_lock()
+cgroup_name() <inline int cgroup_name (struct cgroup *cgrp, char *buf, size_t buflen) at ./cgroup.h:618>:
+    kernfs_name()
+cgroup_path() <inline int cgroup_path (struct cgroup *cgrp, char *buf, size_t buflen) at ./cgroup.h:623>:
+    kernfs_path()
+cgroup_path_from_kernfs_id() <inline void cgroup_path_from_kernfs_id (u64 id, char *buf, size_t buflen) at ./cgroup.h:710>
+cgroup_post_fork() <inline void cgroup_post_fork (struct task_struct *p, struct kernel_clone_args *kargs) at ./cgroup.h:682>
+cgroup_psi_enabled() <inline bool cgroup_psi_enabled (void) at ./cgroup.h:699>:
+cgroup_put() <inline void cgroup_put (struct cgroup *cgrp) at ./cgroup.h:385>:
+    css_put() <inline void css_put (struct cgroup_subsys_state *css) at ./cgroup.h:669>
+cgroup_sk_alloc() <inline void cgroup_sk_alloc (struct sock_cgroup_data *skcd) at ./cgroup.h:789>
+cgroup_sk_clone() <inline void cgroup_sk_clone (struct sock_cgroup_data *skcd) at ./cgroup.h:790>
+cgroup_sk_free() <inline void cgroup_sk_free (struct sock_cgroup_data *skcd) at ./cgroup.h:791>
+cgroup_task_dead() <inline void cgroup_task_dead (struct task_struct *p) at ./cgroup.h:685>
+cgroup_task_exit() <inline void cgroup_task_exit (struct task_struct *p) at ./cgroup.h:684>
+cgroup_task_free() <inline void cgroup_task_free (struct task_struct *p) at ./cgroup.h:687>
+cgroup_task_frozen() <inline bool cgroup_task_frozen (struct task_struct *task) at ./cgroup.h:813>:
+cgroup_task_release() <inline void cgroup_task_release (struct task_struct *p) at ./cgroup.h:686>
+cgroup_tryget() <inline bool cgroup_tryget (struct cgroup *cgrp) at ./cgroup.h:380>:
+    css_tryget()
+cgroup_unlock() <inline void cgroup_unlock (void) at ./cgroup.h:671>:
+    mutex_unlock()
+cgroupstats_build() <inline int cgroupstats_build (struct cgroupstats *stats, struct dentry *dentry) at ./cgroup.h:674>:
+css_is_dying() <inline bool css_is_dying (struct cgroup_subsys_state *css) at ./cgroup.h:354>:
+css_is_online() <inline bool css_is_online (struct cgroup_subsys_state *css) at ./cgroup.h:359>:
+css_is_self() <inline bool css_is_self (struct cgroup_subsys_state *css) at ./cgroup.h:364>:
+    WARN_ON()
+pr_cont_cgroup_name() <inline void pr_cont_cgroup_name (struct cgroup *cgrp) at ./cgroup.h:628>:
+    pr_cont_kernfs_name()
+pr_cont_cgroup_path() <inline void pr_cont_cgroup_path (struct cgroup *cgrp) at ./cgroup.h:633>:
+    pr_cont_kernfs_path()
+seq_cft() <inline struct cftype *seq_cft (struct seq_file *seq) at ./cgroup.h:603>:
+    of_cft() <inline struct cftype *of_cft (struct kernfs_open_file *of) at ./cgroup.h:595>
+seq_css() <inline struct cgroup_subsys_state *seq_css (struct seq_file *seq) at ./cgroup.h:608>:
+    of_css()
+sock_cgroup_ptr() <inline struct cgroup *sock_cgroup_ptr (struct sock_cgroup_data *skcd) at ./cgroup.h:782>
+task_cgroup() <inline struct cgroup *task_cgroup (struct task_struct *task, int subsys_id) at ./cgroup.h:508>:
+    task_css() <inline struct cgroup_subsys_state *task_css (struct task_struct *task, int subsys_id) at ./cgroup.h:457>:
+        task_css_check()
+task_css_is_root() <inline bool task_css_is_root (struct task_struct *task, int subsys_id) at ./cgroup.h:502>:
+    task_css_check()
+task_get_css() <inline struct cgroup_subsys_state *task_get_css (struct task_struct *task, int subsys_id) at ./cgroup.h:473>:
+    rcu_read_lock()
+    task_css() <inline struct cgroup_subsys_state *task_css (struct task_struct *task, int subsys_id) at ./cgroup.h:457>:
+        task_css_check()
+    likely()
+    css_tryget()
+    cpu_relax()
+    rcu_read_unlock()
+task_under_cgroup_hierarchy() <inline bool task_under_cgroup_hierarchy (struct task_struct *task, struct cgroup *ancestor) at ./cgroup.h:704>:
+    task_css_set() <inline struct css_set *task_css_set (struct task_struct *task) at ./cgroup.h:445>:
+        task_css_set_check()
+    cgroup_is_descendant() <inline bool cgroup_is_descendant (struct cgroup *cgrp, struct cgroup *ancestor) at ./cgroup.h:537>:

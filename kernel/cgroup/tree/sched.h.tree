@@ -1,0 +1,345 @@
+add_nr_running() <inline void add_nr_running (struct rq *rq, unsigned count) at ./sched.h:2930>:
+    trace_sched_update_nr_running_tp_enabled()
+    call_trace_sched_update_nr_running()
+    set_rd_overloaded() <inline void set_rd_overloaded (struct root_domain *rd, int status) at ./sched.h:1060>:
+        get_rd_overloaded() <inline int get_rd_overloaded (struct root_domain *rd) at ./sched.h:1055>:
+            READ_ONCE()
+        WRITE_ONCE()
+    sched_update_tick_dependency() <inline void sched_update_tick_dependency (struct rq *rq) at ./sched.h:2927>:
+        cpu_of() <inline int cpu_of (struct rq *rq) at ./sched.h:1362>
+        tick_nohz_full_cpu()
+        sched_can_stop_tick()
+        tick_nohz_dep_clear_cpu()
+        tick_nohz_dep_set_cpu()
+alloc_fair_sched_group() <inline int alloc_fair_sched_group (struct task_group *tg, struct task_group *parent) at ./sched.h:574>
+alloc_user_cpus_ptr() <inline cpumask_t *alloc_user_cpus_ptr (int node) at ./sched.h:2811>:
+    max_t()
+    cpumask_size()
+    kmalloc_node()
+arch_scale_freq_capacity() <__always_inline unsigned long arch_scale_freq_capacity (int cpu) at ./sched.h:3091>:
+arch_scale_freq_tick() <__always_inline void arch_scale_freq_tick (void) at ./sched.h:3076>
+cfs_rq_of() <inline struct cfs_rq *cfs_rq_of (const struct sched_entity *se) at ./sched.h:1702>:
+    task_of() <inline struct task_struct *task_of (struct sched_entity *se) at ./sched.h:1670>:
+        WARN_ON_ONCE()
+        entity_is_task()
+        container_of()
+    task_rq()
+cfs_task_bw_constrained() <inline bool cfs_task_bw_constrained (struct task_struct *p) at ./sched.h:625>:
+cid_to_transit_cid() <__always_inline unsigned int cid_to_transit_cid (unsigned int cid) at ./sched.h:3794>:
+cpu_bw_dl() <inline unsigned long cpu_bw_dl (struct rq *rq) at ./sched.h:3512>:
+cpu_util_dl() <inline unsigned long cpu_util_dl (struct rq *rq) at ./sched.h:3517>:
+    READ_ONCE()
+cpu_util_irq() <inline unsigned long cpu_util_irq (struct rq *rq) at ./sched.h:3681>:
+    READ_ONCE()
+cpufreq_update_util() <inline void cpufreq_update_util (struct rq *rq, unsigned int flags) at ./sched.h:3477>:
+    rcu_dereference_sched()
+    per_cpu_ptr()
+    cpu_of() <inline int cpu_of (struct rq *rq) at ./sched.h:1362>
+    rq_clock() <inline u64 rq_clock (struct rq *rq) at ./sched.h:1757>:
+        lockdep_assert_rq_held()
+        assert_clock_updated() <inline void assert_clock_updated (struct rq *rq) at ./sched.h:1748>:
+            WARN_ON_ONCE()
+css_tg() <inline struct task_group *css_tg (struct cgroup_subsys_state *css) at ./sched.h:560>:
+    container_of()
+    task_group() <inline struct task_group *task_group (struct task_struct *p) at ./sched.h:2279>:
+default_bw_period_us() <inline u64 default_bw_period_us (void) at ./sched.h:441>:
+dl_bandwidth_enabled() <inline int dl_bandwidth_enabled (void) at ./sched.h:325>:
+dl_entity_preempt() <inline bool dl_entity_preempt (const struct sched_dl_entity *a, const struct sched_dl_entity *b) at ./sched.h:301>:
+    dl_entity_is_special() <inline bool dl_entity_is_special (const struct sched_dl_entity *dl_se) at ./sched.h:289>:
+        unlikely()
+    dl_time_before()
+dl_server_active() <inline bool dl_server_active (struct sched_dl_entity *dl_se) at ./sched.h:425>
+dl_task_fits_capacity() <inline bool dl_task_fits_capacity (struct task_struct *p, int cpu) at ./sched.h:3505>:
+    arch_scale_cpu_capacity()
+double_rq_clock_clear_update() <inline void double_rq_clock_clear_update (struct rq *rq1, struct rq *rq2) at ./sched.h:3103>:
+free_fair_sched_group() <inline void free_fair_sched_group (struct task_group *tg) at ./sched.h:573>
+get_push_task() <inline struct task_struct *get_push_task (struct rq *rq) at ./sched.h:2821>:
+    lockdep_assert_rq_held()
+    get_task_struct()
+global_rt_period() <inline u64 global_rt_period (void) at ./sched.h:2345>:
+global_rt_runtime() <inline u64 global_rt_runtime (void) at ./sched.h:2350>:
+group_balance_mask() <inline struct cpumask *group_balance_mask (struct sched_group *sg) at ./sched.h:2209>:
+    to_cpumask()
+group_cfs_rq() <inline struct cfs_rq *group_cfs_rq (struct sched_entity *grp) at ./sched.h:1711>:
+highest_flag_domain() <inline struct sched_domain *highest_flag_domain (int cpu, int flag) at ./sched.h:2114>:
+    for_each_domain()
+hrtick_enabled_dl() <inline int hrtick_enabled_dl (struct rq *rq) at ./sched.h:3063>:
+    sched_feat()
+    hrtick_enabled() <inline int hrtick_enabled (struct rq *rq) at ./sched.h:3068>:
+        cpu_active()
+        cpu_of() <inline int cpu_of (struct rq *rq) at ./sched.h:1362>
+        hrtimer_is_hres_active()
+hrtick_enabled_fair() <inline int hrtick_enabled_fair (struct rq *rq) at ./sched.h:3058>:
+    sched_feat()
+    hrtick_enabled() <inline int hrtick_enabled (struct rq *rq) at ./sched.h:3068>:
+        cpu_active()
+        cpu_of() <inline int cpu_of (struct rq *rq) at ./sched.h:1362>
+        hrtimer_is_hres_active()
+idle_get_state() <inline struct cpuidle_state *idle_get_state (struct rq *rq) at ./sched.h:2864>:
+    WARN_ON_ONCE()
+    rcu_read_lock_held()
+idle_set_state() <inline void idle_set_state (struct rq *rq, struct cpuidle_state *idle_state) at ./sched.h:2859>
+init_numa_balancing() <inline void init_numa_balancing (u64 clone_flags, struct task_struct *p) at ./sched.h:2057>
+irq_time_read() <inline u64 irq_time_read (int cpu) at ./sched.h:3418>:
+    per_cpu()
+irqtime_enabled() <inline int irqtime_enabled (void) at ./sched.h:3434>:
+    static_branch_likely()
+is_migration_disabled() <inline bool is_migration_disabled (struct task_struct *p) at ./sched.h:1369>
+is_per_cpu_kthread() <inline bool is_per_cpu_kthread (struct task_struct *p) at ./sched.h:3749>:
+lowest_flag_domain() <inline struct sched_domain *lowest_flag_domain (int cpu, int flag) at ./sched.h:2135>:
+    for_each_domain()
+membarrier_switch_mm() <inline void membarrier_switch_mm (struct rq *rq, struct mm_struct *prev_mm, struct mm_struct *next_mm) at ./sched.h:3741>:
+    atomic_read()
+    READ_ONCE()
+    WRITE_ONCE()
+mm_cid_switch_to() <inline void mm_cid_switch_to (struct task_struct *prev, struct task_struct *next) at ./sched.h:4007>:
+    mm_cid_schedout() <__always_inline void mm_cid_schedout (struct task_struct *prev) at ./sched.h:3971>:
+        likely()
+        cid_in_transit() <__always_inline bool cid_in_transit (unsigned int cid) at ./sched.h:3779>:
+        READ_ONCE()
+        cid_from_transit_cid() <__always_inline unsigned int cid_from_transit_cid (unsigned int cid) at ./sched.h:3799>:
+        cid_on_cpu() <__always_inline bool cid_on_cpu (unsigned int cid) at ./sched.h:3774>:
+        cid_to_cpu_cid() <__always_inline unsigned int cid_to_cpu_cid (unsigned int cid) at ./sched.h:3789>:
+        mm_cid_update_pcpu_cid() <__always_inline void mm_cid_update_pcpu_cid (struct mm_struct *mm, unsigned int cid) at ./sched.h:3882>:
+        mm_drop_cid() <__always_inline void mm_drop_cid (struct mm_struct *mm, unsigned int cid) at ./sched.h:3810>:
+            clear_bit()
+            mm_cidmask()
+    mm_cid_schedin() <__always_inline void mm_cid_schedin (struct task_struct *next) at ./sched.h:3955>:
+        READ_ONCE()
+        likely()
+        cid_on_cpu() <__always_inline bool cid_on_cpu (unsigned int cid) at ./sched.h:3774>:
+        mm_cid_from_task() <__always_inline void mm_cid_from_task (struct task_struct *t, unsigned int cpu_cid, unsigned int mode) at ./sched.h:3922>:
+            READ_ONCE()
+            likely()
+            cid_on_task() <__always_inline bool cid_on_task (unsigned int cid) at ./sched.h:3804>:
+            mm_cid_update_pcpu_cid() <__always_inline void mm_cid_update_pcpu_cid (struct mm_struct *mm, unsigned int cid) at ./sched.h:3882>:
+            mm_cid_converge() <inline unsigned int mm_cid_converge (struct mm_struct *mm, unsigned int orig_cid, unsigned int max_cids) at ./sched.h:3855>:
+                cpu_cid_to_cid() <__always_inline unsigned int cpu_cid_to_cid (unsigned int cid) at ./sched.h:3784>:
+                likely()
+                mm_drop_cid() <__always_inline void mm_drop_cid (struct mm_struct *mm, unsigned int cid) at ./sched.h:3810>:
+                    clear_bit()
+                    mm_cidmask()
+            cid_on_cpu() <__always_inline bool cid_on_cpu (unsigned int cid) at ./sched.h:3774>:
+            mm_drop_cid_on_cpu() <__always_inline void mm_drop_cid_on_cpu (struct mm_struct *mm, struct mm_cid_pcpu *pcp) at ./sched.h:3824>:
+                cid_on_cpu() <__always_inline bool cid_on_cpu (unsigned int cid) at ./sched.h:3774>:
+                cpu_cid_to_cid() <__always_inline unsigned int cpu_cid_to_cid (unsigned int cid) at ./sched.h:3784>:
+                mm_drop_cid() <__always_inline void mm_drop_cid (struct mm_struct *mm, unsigned int cid) at ./sched.h:3810>:
+                    clear_bit()
+                    mm_cidmask()
+            this_cpu_ptr()
+            cpu_cid_to_cid() <__always_inline unsigned int cpu_cid_to_cid (unsigned int cid) at ./sched.h:3784>:
+            mm_get_cid() <inline unsigned int mm_get_cid (struct mm_struct *mm) at ./sched.h:3844>:
+                READ_ONCE()
+                cpu_relax()
+                num_possible_cpus()
+            mm_cid_update_task_cid() <__always_inline void mm_cid_update_task_cid (struct task_struct *t, unsigned int cid) at ./sched.h:3874>:
+                rseq_sched_set_ids_changed()
+        mm_cid_from_cpu() <__always_inline void mm_cid_from_cpu (struct task_struct *t, unsigned int cpu_cid, unsigned int mode) at ./sched.h:3887>:
+            READ_ONCE()
+            likely()
+            cid_on_cpu() <__always_inline bool cid_on_cpu (unsigned int cid) at ./sched.h:3774>:
+            cpu_cid_to_cid() <__always_inline unsigned int cpu_cid_to_cid (unsigned int cid) at ./sched.h:3784>:
+            mm_cid_update_task_cid() <__always_inline void mm_cid_update_task_cid (struct task_struct *t, unsigned int cid) at ./sched.h:3874>:
+                rseq_sched_set_ids_changed()
+            mm_cid_converge() <inline unsigned int mm_cid_converge (struct mm_struct *mm, unsigned int orig_cid, unsigned int max_cids) at ./sched.h:3855>:
+                cpu_cid_to_cid() <__always_inline unsigned int cpu_cid_to_cid (unsigned int cid) at ./sched.h:3784>:
+                likely()
+                mm_drop_cid() <__always_inline void mm_drop_cid (struct mm_struct *mm, unsigned int cid) at ./sched.h:3810>:
+                    clear_bit()
+                    mm_cidmask()
+            cid_on_task() <__always_inline bool cid_on_task (unsigned int cid) at ./sched.h:3804>:
+            mm_unset_cid_on_task() <__always_inline void mm_unset_cid_on_task (struct task_struct *t) at ./sched.h:3815>:
+                cid_on_task() <__always_inline bool cid_on_task (unsigned int cid) at ./sched.h:3804>:
+                mm_drop_cid() <__always_inline void mm_drop_cid (struct mm_struct *mm, unsigned int cid) at ./sched.h:3810>:
+                    clear_bit()
+                    mm_cidmask()
+            cid_to_cpu_cid() <__always_inline unsigned int cid_to_cpu_cid (unsigned int cid) at ./sched.h:3789>:
+            mm_get_cid() <inline unsigned int mm_get_cid (struct mm_struct *mm) at ./sched.h:3844>:
+                READ_ONCE()
+                cpu_relax()
+                num_possible_cpus()
+            mm_cid_update_pcpu_cid() <__always_inline void mm_cid_update_pcpu_cid (struct mm_struct *mm, unsigned int cid) at ./sched.h:3882>:
+move_queued_task_locked() <inline void move_queued_task_locked (struct rq *src_rq, struct rq *dst_rq, struct task_struct *task) at ./sched.h:4013>:
+    lockdep_assert_rq_held()
+    deactivate_task()
+    set_task_cpu()
+    activate_task()
+    wakeup_preempt()
+next_active_class() <inline const struct sched_class *next_active_class (const struct sched_class *class) at ./sched.h:2725>:
+    scx_switched_all()
+    scx_enabled()
+nohz_balance_exit_idle() <inline void nohz_balance_exit_idle (struct rq *rq) at ./sched.h:3359>
+nohz_run_idle_balance() <inline void nohz_run_idle_balance (int cpu) at ./sched.h:3365>
+online_fair_sched_group() <inline void online_fair_sched_group (struct task_group *tg) at ./sched.h:578>
+put_prev_set_next_task() <inline void put_prev_set_next_task (struct rq *rq, struct task_struct *prev, struct task_struct *next) at ./sched.h:2681>:
+    WARN_ON_ONCE()
+put_prev_task() <inline void put_prev_task (struct rq *rq, struct task_struct *prev) at ./sched.h:2660>:
+    WARN_ON_ONCE()
+queue_balance_callback() <inline void queue_balance_callback (struct rq *rq, struct balance_callback *head, void (*func) (struct rq *rq)) at ./sched.h:2064>:
+    lockdep_assert_rq_held()
+    unlikely()
+rq_clock_cancel_skipupdate() <inline void rq_clock_cancel_skipupdate (struct rq *rq) at ./sched.h:1783>:
+    lockdep_assert_rq_held()
+rq_clock_skip_update() <inline void rq_clock_skip_update (struct rq *rq) at ./sched.h:1773>:
+    lockdep_assert_rq_held()
+rq_clock_start_loop_update() <inline void rq_clock_start_loop_update (struct rq *rq) at ./sched.h:1798>:
+    lockdep_assert_rq_held()
+    WARN_ON_ONCE()
+rq_clock_stop_loop_update() <inline void rq_clock_stop_loop_update (struct rq *rq) at ./sched.h:1805>:
+    lockdep_assert_rq_held()
+rq_clock_task() <inline u64 rq_clock_task (struct rq *rq) at ./sched.h:1765>:
+    lockdep_assert_rq_held()
+    assert_clock_updated() <inline void assert_clock_updated (struct rq *rq) at ./sched.h:1748>:
+        WARN_ON_ONCE()
+rq_lockp() <inline raw_spinlock_t *rq_lockp (struct rq *rq) at ./sched.h:1549>:
+    sched_core_enabled() <inline bool sched_core_enabled (struct rq *rq) at ./sched.h:1539>:
+        static_branch_unlikely()
+rq_modified_above() <inline bool rq_modified_above (struct rq *rq, const struct sched_class *class) at ./sched.h:2757>:
+    sched_class_above()
+rq_modified_begin() <inline void rq_modified_begin (struct rq *rq, const struct sched_class *class) at ./sched.h:2751>:
+    sched_class_above()
+rq_of() <inline struct rq *rq_of (struct cfs_rq *cfs_rq) at ./sched.h:1356>:
+    container_of()
+rq_order_less() <inline bool rq_order_less (struct rq *rq1, struct rq *rq2) at ./sched.h:3127>:
+rq_repin_lock() <inline void rq_repin_lock (struct rq *rq, struct rq_flags *rf) at ./sched.h:1884>:
+    lockdep_repin_lock()
+rq_set_donor() <inline void rq_set_donor (struct rq *rq, struct task_struct *t) at ./sched.h:1421>:
+    rcu_assign_pointer()
+rt_bandwidth_enabled() <inline int rt_bandwidth_enabled (void) at ./sched.h:817>:
+rt_effective_prio() <inline int rt_effective_prio (struct task_struct *p, int prio) at ./sched.h:4053>:
+    rt_mutex_get_top_task()
+rt_rq_is_runnable() <inline bool rt_rq_is_runnable (struct rt_rq *rt_rq) at ./sched.h:857>
+scale_irq_capacity() <inline unsigned long scale_irq_capacity (unsigned long util, unsigned long irq, unsigned long max) at ./sched.h:3687>
+sched_asym_cpucap_active() <__always_inline bool sched_asym_cpucap_active (void) at ./sched.h:2159>:
+    static_branch_unlikely()
+sched_asym_prefer() <inline bool sched_asym_prefer (int a, int b) at ./sched.h:968>:
+    arch_asym_cpu_priority()
+sched_core_account_forceidle() <inline void sched_core_account_forceidle (struct rq *rq) at ./sched.h:3390>:
+    schedstat_enabled()
+sched_core_disabled() <inline bool sched_core_disabled (void) at ./sched.h:1544>:
+    static_branch_unlikely()
+sched_core_enqueued() <inline bool sched_core_enqueued (struct task_struct *p) at ./sched.h:1526>:
+    RB_EMPTY_NODE()
+sched_core_tick() <inline void sched_core_tick (struct rq *rq) at ./sched.h:3392>:
+    sched_core_enabled() <inline bool sched_core_enabled (struct rq *rq) at ./sched.h:1539>:
+        static_branch_unlikely()
+    schedstat_enabled()
+sched_cpu_cookie_match() <inline bool sched_cpu_cookie_match (struct rq *rq, struct task_struct *p) at ./sched.h:1560>:
+    sched_core_enabled() <inline bool sched_core_enabled (struct rq *rq) at ./sched.h:1539>:
+        static_branch_unlikely()
+sched_dl_runnable() <inline bool sched_dl_runnable (struct rq *rq) at ./sched.h:2767>
+sched_domains_numa_masks_clear() <inline void sched_domains_numa_masks_clear (unsigned int cpu) at ./sched.h:2029>
+sched_domains_numa_masks_set() <inline void sched_domains_numa_masks_set (unsigned int cpu) at ./sched.h:2028>
+sched_energy_enabled() <inline bool sched_energy_enabled (void) at ./sched.h:3711>:
+    static_branch_unlikely()
+sched_fair_runnable() <inline bool sched_fair_runnable (struct rq *rq) at ./sched.h:2777>
+sched_group_cookie_match() <inline bool sched_group_cookie_match (struct rq *rq, struct task_struct *p, struct sched_group *group) at ./sched.h:1570>:
+    sched_core_enabled() <inline bool sched_core_enabled (struct rq *rq) at ./sched.h:1539>:
+        static_branch_unlikely()
+    for_each_cpu_and()
+    sched_group_span() <inline struct cpumask *sched_group_span (struct sched_group *sg) at ./sched.h:2201>:
+        to_cpumask()
+    sched_core_cookie_match() <inline bool sched_core_cookie_match (struct rq *rq, struct task_struct *p) at ./sched.h:1565>:
+        sched_core_enabled() <inline bool sched_core_enabled (struct rq *rq) at ./sched.h:1539>:
+            static_branch_unlikely()
+        for_each_cpu()
+        cpu_smt_mask()
+        cpu_of() <inline int cpu_of (struct rq *rq) at ./sched.h:1362>
+        available_idle_cpu() <inline bool available_idle_cpu (int cpu) at ./sched.h:1404>:
+            idle_rq() <inline bool idle_rq (struct rq *rq) at ./sched.h:1393>
+            cpu_rq()
+            vcpu_is_preempted()
+    cpu_rq()
+sched_group_set_idle() <inline int sched_group_set_idle (struct task_group *tg, long idle) at ./sched.h:618>
+sched_group_set_shares() <inline int sched_group_set_shares (struct task_group *tg, unsigned long shares) at ./sched.h:617>
+sched_init_numa() <inline void sched_init_numa (int offline_node) at ./sched.h:2026>
+sched_numa_find_closest() <inline int sched_numa_find_closest (const struct cpumask *cpus, int cpu) at ./sched.h:2031>:
+sched_rng() <inline u32 sched_rng (void) at ./sched.h:1377>:
+    prandom_u32_state()
+    this_cpu_ptr()
+sched_rt_runnable() <inline bool sched_rt_runnable (struct rq *rq) at ./sched.h:2772>
+sched_stop_runnable() <inline bool sched_stop_runnable (struct rq *rq) at ./sched.h:2762>:
+    task_on_rq_queued() <inline int task_on_rq_queued (struct task_struct *p) at ./sched.h:2390>:
+        READ_ONCE()
+sched_tick_offload_init() <inline int sched_tick_offload_init (void) at ./sched.h:2926>
+sched_uclamp_enable() <inline void sched_uclamp_enable (void) at ./sched.h:3639>:
+    uclamp_is_used() <inline bool uclamp_is_used (void) at ./sched.h:3634>:
+        static_branch_likely()
+    static_branch_enable()
+sched_update_numa() <inline void sched_update_numa (int cpu, bool online) at ./sched.h:2027>
+sched_weight_from_cgroup() <inline unsigned long sched_weight_from_cgroup (unsigned long cgrp_weight) at ./sched.h:261>:
+    DIV_ROUND_CLOSEST_ULL()
+sched_weight_to_cgroup() <inline unsigned long sched_weight_to_cgroup (unsigned long weight) at ./sched.h:266>:
+    clamp_t()
+    DIV_ROUND_CLOSEST_ULL()
+scx_rq_clock_update() <inline void scx_rq_clock_update (struct rq *rq, u64 clock) at ./sched.h:1852>:
+    scx_enabled()
+    WRITE_ONCE()
+    smp_store_release()
+se_runnable() <inline long se_runnable (struct sched_entity *se) at ./sched.h:949>:
+    entity_is_task()
+se_update_runnable() <inline void se_update_runnable (struct sched_entity *se) at ./sched.h:947>:
+    entity_is_task()
+se_weight() <inline long se_weight (struct sched_entity *se) at ./sched.h:962>:
+    scale_load_down()
+set_next_task() <inline void set_next_task (struct rq *rq, struct task_struct *next) at ./sched.h:2666>:
+sub_nr_running() <inline void sub_nr_running (struct rq *rq, unsigned count) at ./sched.h:2945>:
+    trace_sched_update_nr_running_tp_enabled()
+    call_trace_sched_update_nr_running()
+    sched_update_tick_dependency() <inline void sched_update_tick_dependency (struct rq *rq) at ./sched.h:2927>:
+        cpu_of() <inline int cpu_of (struct rq *rq) at ./sched.h:1362>
+        tick_nohz_full_cpu()
+        sched_can_stop_tick()
+        tick_nohz_dep_clear_cpu()
+        tick_nohz_dep_set_cpu()
+task_allowed_on_cpu() <inline bool task_allowed_on_cpu (struct task_struct *p, int cpu) at ./sched.h:2798>:
+    cpumask_test_cpu()
+    task_cpu_possible()
+task_cfs_rq() <inline struct cfs_rq *task_cfs_rq (const struct task_struct *p) at ./sched.h:1697>:
+    task_rq()
+task_current() <inline int task_current (struct rq *rq, struct task_struct *p) at ./sched.h:2361>
+task_current_donor() <inline int task_current_donor (struct rq *rq, struct task_struct *p) at ./sched.h:2372>
+task_has_dl_policy() <inline int task_has_dl_policy (struct task_struct *p) at ./sched.h:234>:
+    dl_policy() <inline int dl_policy (int policy) at ./sched.h:213>:
+task_has_idle_policy() <inline int task_has_idle_policy (struct task_struct *p) at ./sched.h:224>:
+    idle_policy() <inline int idle_policy (int policy) at ./sched.h:189>:
+task_has_rt_policy() <inline int task_has_rt_policy (struct task_struct *p) at ./sched.h:229>:
+    rt_policy() <inline int rt_policy (int policy) at ./sched.h:208>:
+task_is_blocked() <inline bool task_is_blocked (struct task_struct *p) at ./sched.h:2377>:
+    sched_proxy_exec()
+task_is_pushable() <inline bool task_is_pushable (struct rq *rq, struct task_struct *p, int cpu) at ./sched.h:4025>:
+    task_on_cpu() <inline int task_on_cpu (struct rq *rq, struct task_struct *p) at ./sched.h:2385>
+    cpumask_test_cpu()
+task_on_rq_migrating() <inline int task_on_rq_migrating (struct task_struct *p) at ./sched.h:2395>:
+    READ_ONCE()
+task_user_cpus() <inline const struct cpumask *task_user_cpus (struct task_struct *p) at ./sched.h:2221>:
+uclamp_eff_value() <inline unsigned long uclamp_eff_value (struct task_struct *p, enum uclamp_id clamp_id) at ./sched.h:3624>:
+uclamp_none() <inline unsigned int uclamp_none (enum uclamp_id clamp_id) at ./sched.h:3598>:
+uclamp_rq_get() <inline unsigned long uclamp_rq_get (struct rq *rq, enum uclamp_id clamp_id) at ./sched.h:3642>:
+    READ_ONCE()
+uclamp_rq_is_capped() <inline bool uclamp_rq_is_capped (struct rq *rq) at ./sched.h:3632>:
+    uclamp_is_used() <inline bool uclamp_is_used (void) at ./sched.h:3634>:
+        static_branch_likely()
+    cpu_util_cfs()
+    cpu_of() <inline int cpu_of (struct rq *rq) at ./sched.h:1362>
+    cpu_util_rt() <inline unsigned long cpu_util_rt (struct rq *rq) at ./sched.h:3526>:
+        READ_ONCE()
+    READ_ONCE()
+uclamp_rq_is_idle() <inline bool uclamp_rq_is_idle (struct rq *rq) at ./sched.h:3655>:
+uclamp_rq_set() <inline void uclamp_rq_set (struct rq *rq, enum uclamp_id clamp_id, unsigned int value) at ./sched.h:3651>:
+    WRITE_ONCE()
+uclamp_se_set() <inline void uclamp_se_set (struct uclamp_se *uc_se, unsigned int value, bool user_defined) at ./sched.h:3614>:
+    uclamp_bucket_id() <inline unsigned int uclamp_bucket_id (unsigned int clamp_value) at ./sched.h:3608>:
+        min_t()
+unregister_fair_sched_group() <inline void unregister_fair_sched_group (struct task_group *tg) at ./sched.h:579>
+update_avg() <inline void update_avg (u64 *avg, u64 sample) at ./sched.h:241>:
+update_idle_core() <inline void update_idle_core (struct rq *rq) at ./sched.h:1665>:
+    static_branch_unlikely()
+valid_policy() <inline bool valid_policy (int policy) at ./sched.h:218>:
+    idle_policy() <inline int idle_policy (int policy) at ./sched.h:189>:
+    fair_policy() <inline int fair_policy (int policy) at ./sched.h:203>:
+        normal_policy() <inline int normal_policy (int policy) at ./sched.h:194>:
+    rt_policy() <inline int rt_policy (int policy) at ./sched.h:208>:
+    dl_policy() <inline int dl_policy (int policy) at ./sched.h:213>:
+walk_tg_tree() <inline int walk_tg_tree (tg_visitor down, tg_visitor up, void *data) at ./sched.h:555>:
+    walk_tg_tree_from()

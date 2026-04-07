@@ -1,0 +1,3110 @@
+balance_callbacks() <void balance_callbacks (struct rq *rq, struct balance_callback *head) at ./core.c:4990>:
+    unlikely()
+    raw_spin_rq_lock_irqsave()
+    do_balance_callbacks() <void do_balance_callbacks (struct rq *rq, struct balance_callback *head) at ./core.c:4916>:
+        lockdep_assert_rq_held()
+    raw_spin_rq_unlock_irqrestore()
+balance_push() <inline void balance_push (struct rq *rq) at ./core.c:8216>:
+    lockdep_assert_rq_held()
+    cpu_dying()
+    this_rq()
+    kthread_is_per_cpu()
+    is_migration_disabled()
+    rq_has_pinned_tasks() <inline bool rq_has_pinned_tasks (struct rq *rq) at ./core.c:2394>
+    rcuwait_active()
+    raw_spin_rq_unlock() <void raw_spin_rq_unlock (struct rq *rq) at ./core.c:690>:
+        raw_spin_unlock()
+        rq_lockp()
+    rcuwait_wake_up()
+    raw_spin_rq_lock()
+    get_task_struct()
+    preempt_disable()
+    stop_one_cpu_nowait()
+    this_cpu_ptr()
+    preempt_enable()
+call_function_single_prep_ipi() <bool call_function_single_prep_ipi (int cpu) at ./core.c:3777>:
+    set_nr_if_polling() <inline bool set_nr_if_polling (struct task_struct *p) at ./core.c:1012>:
+        task_thread_info()
+        typeof()
+        READ_ONCE()
+        try_cmpxchg()
+    cpu_rq()
+    trace_sched_wake_idle_without_ipi()
+call_trace_sched_update_nr_running() <void call_trace_sched_update_nr_running (struct rq *rq, int count) at ./core.c:10323>:
+    trace_sched_update_nr_running_tp()
+cookie_equals() <inline bool cookie_equals (struct task_struct *a, unsigned long cookie) at ./core.c:5972>:
+    is_task_rq_idle() <inline bool is_task_rq_idle (struct task_struct *t) at ./core.c:5967>:
+        task_rq()
+cookie_match() <inline bool cookie_match (struct task_struct *a, struct task_struct *b) at ./core.c:5977>:
+    is_task_rq_idle() <inline bool is_task_rq_idle (struct task_struct *t) at ./core.c:5967>:
+        task_rq()
+cpu_burst_read_u64() <u64 cpu_burst_read_u64 (struct cgroup_subsys_state *css, struct cftype *cft) at ./core.c:9834>:
+    tg_bandwidth() <void tg_bandwidth (struct task_group *tg, u64 *period_us_p, u64 *quota_us_p, u64 *burst_us_p) at ./core.c:9746>:
+        tg_get_cfs_period() <u64 tg_get_cfs_period (struct task_group *tg) at ./core.c:9573>:
+            ktime_to_ns()
+            do_div()
+        tg_get_cfs_quota() <u64 tg_get_cfs_quota (struct task_group *tg) at ./core.c:9583>:
+            do_div()
+        tg_get_cfs_burst() <u64 tg_get_cfs_burst (struct task_group *tg) at ./core.c:9596>:
+            do_div()
+    css_tg()
+cpu_burst_write_u64() <int cpu_burst_write_u64 (struct cgroup_subsys_state *css, struct cftype *cftype, u64 burst_us) at ./core.c:9866>:
+    css_tg()
+    tg_bandwidth() <void tg_bandwidth (struct task_group *tg, u64 *period_us_p, u64 *quota_us_p, u64 *burst_us_p) at ./core.c:9746>:
+        tg_get_cfs_period() <u64 tg_get_cfs_period (struct task_group *tg) at ./core.c:9573>:
+            ktime_to_ns()
+            do_div()
+        tg_get_cfs_quota() <u64 tg_get_cfs_quota (struct task_group *tg) at ./core.c:9583>:
+            do_div()
+        tg_get_cfs_burst() <u64 tg_get_cfs_burst (struct task_group *tg) at ./core.c:9596>:
+            do_div()
+    tg_set_bandwidth() <int tg_set_bandwidth (struct task_group *tg, u64 period_us, u64 quota_us, u64 burst_us) at ./core.c:9775>:
+        tg_set_cfs_bandwidth() <int tg_set_cfs_bandwidth (struct task_group *tg, u64 period_us, u64 quota_us, u64 burst_us) at ./core.c:9504>:
+            guard()
+            cpus_read_lock()
+            cfs_bandwidth_usage_inc()
+            scoped_guard()
+            ns_to_ktime()
+            start_cfs_bandwidth()
+            for_each_online_cpu()
+            unthrottle_cfs_rq()
+            cfs_bandwidth_usage_dec()
+        scx_group_set_bandwidth()
+cpu_cfs_local_stat_show() <int cpu_cfs_local_stat_show (struct seq_file *sf, void *v) at ./core.c:9730>:
+    css_tg()
+    seq_css()
+    seq_printf()
+    throttled_time_self() <u64 throttled_time_self (struct task_group *tg) at ./core.c:9718>:
+        for_each_possible_cpu()
+        READ_ONCE()
+cpu_cfs_stat_show() <int cpu_cfs_stat_show (struct seq_file *sf, void *v) at ./core.c:9690>:
+    css_tg()
+    seq_css()
+    seq_printf()
+    schedstat_enabled()
+    for_each_possible_cpu()
+    schedstat_val()
+cpu_cgroup_attach() <void cpu_cgroup_attach (struct cgroup_taskset *tset) at ./core.c:9280>:
+    cgroup_taskset_for_each()
+    sched_move_task() <void sched_move_task (struct task_struct *tsk, bool for_autogroup) at ./core.c:9169>:
+        CLASS()
+        task_rq_lock()
+        scoped_guard()
+        sched_change_group() <void sched_change_group (struct task_struct *tsk) at ./core.c:9140>:
+            container_of()
+            task_css_check()
+            task_group()
+            autogroup_task_group()
+            set_task_rq()
+            task_cpu()
+        scx_cgroup_move_task()
+        resched_curr() <void resched_curr (struct rq *rq) at ./core.c:1154>:
+        wakeup_preempt() <void wakeup_preempt (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2185>:
+            sched_class_above()
+            resched_curr() <void resched_curr (struct rq *rq) at ./core.c:1154>:
+            task_on_rq_queued()
+            test_tsk_need_resched()
+            rq_clock_skip_update()
+cpu_cgroup_can_attach() <int cpu_cgroup_can_attach (struct cgroup_taskset *tset) at ./core.c:9262>:
+    rt_group_sched_enabled()
+    cgroup_taskset_for_each()
+    sched_rt_can_attach()
+    css_tg()
+    scx_cgroup_can_attach()
+cpu_cgroup_cancel_attach() <void cpu_cgroup_cancel_attach (struct cgroup_taskset *tset) at ./core.c:9289>:
+    scx_cgroup_cancel_attach()
+cpu_cgroup_css_alloc() <struct cgroup_subsys_state *cpu_cgroup_css_alloc (struct cgroup_subsys_state *parent_css) at ./core.c:9197>:
+    css_tg()
+    sched_create_group() <struct task_group *sched_create_group (struct task_group *parent) at ./core.c:9062>:
+        kmem_cache_alloc()
+        ERR_PTR()
+        alloc_fair_sched_group()
+        alloc_rt_sched_group()
+        scx_tg_init()
+        alloc_uclamp_sched_group() <inline void alloc_uclamp_sched_group (struct task_group *tg, struct task_group *parent) at ./core.c:9023>:
+            for_each_clamp_id()
+            uclamp_se_set()
+            uclamp_none()
+        sched_free_group() <void sched_free_group (struct task_group *tg) at ./core.c:9037>:
+            free_fair_sched_group()
+            free_rt_sched_group()
+            autogroup_free()
+            kmem_cache_free()
+    IS_ERR()
+    ERR_PTR()
+cpu_cgroup_css_free() <void cpu_cgroup_css_free (struct cgroup_subsys_state *css) at ./core.c:9252>:
+    css_tg()
+    sched_unregister_group() <void sched_unregister_group (struct task_group *tg) at ./core.c:9050>:
+        unregister_fair_sched_group()
+        unregister_rt_sched_group()
+        call_rcu()
+        sched_free_group_rcu() <void sched_free_group_rcu (struct rcu_head *rcu) at ./core.c:9045>:
+            sched_free_group() <void sched_free_group (struct task_group *tg) at ./core.c:9037>:
+                free_fair_sched_group()
+                free_rt_sched_group()
+                autogroup_free()
+                kmem_cache_free()
+            container_of()
+            task_group()
+cpu_cgroup_css_offline() <void cpu_cgroup_css_offline (struct cgroup_subsys_state *css) at ./core.c:9238>:
+    css_tg()
+    scx_tg_offline()
+cpu_cgroup_css_online() <int cpu_cgroup_css_online (struct cgroup_subsys_state *css) at ./core.c:9215>:
+    css_tg()
+    scx_tg_online()
+    sched_online_group() <void sched_online_group (struct task_group *tg, struct task_group *parent) at ./core.c:9086>:
+        spin_lock_irqsave()
+        list_add_tail_rcu()
+        WARN_ON()
+        INIT_LIST_HEAD()
+        list_add_rcu()
+        spin_unlock_irqrestore()
+        online_fair_sched_group()
+    guard()
+    cpu_util_update_eff() <void cpu_util_update_eff (struct cgroup_subsys_state *css) at ./core.c:9295>:
+        lockdep_assert_held()
+        WARN_ON_ONCE()
+        rcu_read_lock_held()
+        css_for_each_descendant_pre()
+        css_tg()
+        for_each_clamp_id()
+        min()
+        uclamp_bucket_id()
+        css_rightmost_descendant()
+        uclamp_update_active_tasks() <inline void uclamp_update_active_tasks (struct cgroup_subsys_state *css) at ./core.c:1878>:
+            css_task_iter_start()
+            css_task_iter_next()
+            uclamp_update_active() <inline void uclamp_update_active (struct task_struct *p) at ./core.c:1848>:
+                task_rq_lock()
+                for_each_clamp_id()
+                uclamp_rq_reinc_id() <inline void uclamp_rq_reinc_id (struct rq *rq, struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1830>:
+                    uclamp_rq_dec_id() <inline void uclamp_rq_dec_id (struct rq *rq, struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1713>:
+                        lockdep_assert_rq_held()
+                        unlikely()
+                        WARN_ON_ONCE()
+                        likely()
+                        uclamp_rq_get()
+                        uclamp_rq_max_value() <inline unsigned int uclamp_rq_max_value (struct rq *rq, enum uclamp_id clamp_id, unsigned int clamp_value) at ./core.c:1557>:
+                            uclamp_idle_value() <inline unsigned int uclamp_idle_value (struct rq *rq, enum uclamp_id clamp_id, unsigned int clamp_value) at ./core.c:1530>:
+                                uclamp_none()
+                        uclamp_rq_set()
+                    uclamp_rq_inc_id() <inline void uclamp_rq_inc_id (struct rq *rq, struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1675>:
+                        lockdep_assert_rq_held()
+                        uclamp_eff_get() <inline struct uclamp_se uclamp_eff_get (struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1640>:
+                            uclamp_tg_restrict() <inline struct uclamp_se uclamp_tg_restrict (struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1605>:
+                                task_group_is_autogroup()
+                                task_group()
+                                clamp()
+                                uclamp_se_set()
+                            unlikely()
+                        uclamp_idle_reset() <inline void uclamp_idle_reset (struct rq *rq, enum uclamp_id clamp_id, unsigned int clamp_value) at ./core.c:1546>:
+                            uclamp_rq_set()
+                        uclamp_rq_get()
+                        uclamp_rq_set()
+                task_rq_unlock()
+            css_task_iter_end()
+cpu_cgroup_css_released() <void cpu_cgroup_css_released (struct cgroup_subsys_state *css) at ./core.c:9245>:
+    css_tg()
+    sched_release_group() <void sched_release_group (struct task_group *tg) at ./core.c:9117>:
+        spin_lock_irqsave()
+        list_del_rcu()
+        spin_unlock_irqrestore()
+cpu_curr_snapshot() <struct task_struct *cpu_curr_snapshot (int cpu) at ./core.c:4346>:
+    cpu_rq()
+    rq_lock_irqsave()
+    smp_mb__after_spinlock()
+    rcu_dereference()
+    cpu_curr()
+    rq_unlock_irqrestore()
+    smp_mb()
+cpu_extra_stat_show() <int cpu_extra_stat_show (struct seq_file *sf, struct cgroup_subsys_state *css) at ./core.c:10028>:
+    css_tg()
+    do_div()
+    seq_printf()
+cpu_idle_read_s64() <s64 cpu_idle_read_s64 (struct cgroup_subsys_state *css, struct cftype *cft) at ./core.c:9904>:
+    css_tg()
+cpu_idle_write_s64() <int cpu_idle_write_s64 (struct cgroup_subsys_state *css, struct cftype *cft, s64 idle) at ./core.c:9910>:
+    sched_group_set_idle()
+    css_tg()
+    scx_group_set_idle()
+cpu_local_stat_show() <int cpu_local_stat_show (struct seq_file *sf, struct cgroup_subsys_state *css) at ./core.c:10054>:
+    css_tg()
+    throttled_time_self() <u64 throttled_time_self (struct task_group *tg) at ./core.c:9718>:
+        for_each_possible_cpu()
+        READ_ONCE()
+    do_div()
+    seq_printf()
+cpu_max_show() <int cpu_max_show (struct seq_file *sf, void *v) at ./core.c:10167>:
+    css_tg()
+    seq_css()
+    tg_bandwidth() <void tg_bandwidth (struct task_group *tg, u64 *period_us_p, u64 *quota_us_p, u64 *burst_us_p) at ./core.c:9746>:
+        tg_get_cfs_period() <u64 tg_get_cfs_period (struct task_group *tg) at ./core.c:9573>:
+            ktime_to_ns()
+            do_div()
+        tg_get_cfs_quota() <u64 tg_get_cfs_quota (struct task_group *tg) at ./core.c:9583>:
+            do_div()
+        tg_get_cfs_burst() <u64 tg_get_cfs_burst (struct task_group *tg) at ./core.c:9596>:
+            do_div()
+    cpu_period_quota_print() <void __maybe_unused cpu_period_quota_print (struct seq_file *sf, long period, long quota) at ./core.c:10136>:
+        seq_puts()
+        seq_printf()
+cpu_max_write() <ssize_t cpu_max_write (struct kernfs_open_file *of, char *buf, size_t nbytes, loff_t off) at ./core.c:10177>:
+    css_tg()
+    of_css()
+    tg_bandwidth() <void tg_bandwidth (struct task_group *tg, u64 *period_us_p, u64 *quota_us_p, u64 *burst_us_p) at ./core.c:9746>:
+        tg_get_cfs_period() <u64 tg_get_cfs_period (struct task_group *tg) at ./core.c:9573>:
+            ktime_to_ns()
+            do_div()
+        tg_get_cfs_quota() <u64 tg_get_cfs_quota (struct task_group *tg) at ./core.c:9583>:
+            do_div()
+        tg_get_cfs_burst() <u64 tg_get_cfs_burst (struct task_group *tg) at ./core.c:9596>:
+            do_div()
+    cpu_period_quota_parse() <int __maybe_unused cpu_period_quota_parse (char *buf, u64 *period_us_p, u64 *quota_us_p) at ./core.c:10148>:
+        sscanf()
+        strcmp()
+    tg_set_bandwidth() <int tg_set_bandwidth (struct task_group *tg, u64 period_us, u64 quota_us, u64 burst_us) at ./core.c:9775>:
+        tg_set_cfs_bandwidth() <int tg_set_cfs_bandwidth (struct task_group *tg, u64 period_us, u64 quota_us, u64 burst_us) at ./core.c:9504>:
+            guard()
+            cpus_read_lock()
+            cfs_bandwidth_usage_inc()
+            scoped_guard()
+            ns_to_ktime()
+            start_cfs_bandwidth()
+            for_each_online_cpu()
+            unthrottle_cfs_rq()
+            cfs_bandwidth_usage_dec()
+        scx_group_set_bandwidth()
+cpu_period_read_u64() <u64 cpu_period_read_u64 (struct cgroup_subsys_state *css, struct cftype *cft) at ./core.c:9766>:
+    tg_bandwidth() <void tg_bandwidth (struct task_group *tg, u64 *period_us_p, u64 *quota_us_p, u64 *burst_us_p) at ./core.c:9746>:
+        tg_get_cfs_period() <u64 tg_get_cfs_period (struct task_group *tg) at ./core.c:9573>:
+            ktime_to_ns()
+            do_div()
+        tg_get_cfs_quota() <u64 tg_get_cfs_quota (struct task_group *tg) at ./core.c:9583>:
+            do_div()
+        tg_get_cfs_burst() <u64 tg_get_cfs_burst (struct task_group *tg) at ./core.c:9596>:
+            do_div()
+    css_tg()
+cpu_period_write_u64() <int cpu_period_write_u64 (struct cgroup_subsys_state *css, struct cftype *cftype, u64 period_us) at ./core.c:9843>:
+    css_tg()
+    tg_bandwidth() <void tg_bandwidth (struct task_group *tg, u64 *period_us_p, u64 *quota_us_p, u64 *burst_us_p) at ./core.c:9746>:
+        tg_get_cfs_period() <u64 tg_get_cfs_period (struct task_group *tg) at ./core.c:9573>:
+            ktime_to_ns()
+            do_div()
+        tg_get_cfs_quota() <u64 tg_get_cfs_quota (struct task_group *tg) at ./core.c:9583>:
+            do_div()
+        tg_get_cfs_burst() <u64 tg_get_cfs_burst (struct task_group *tg) at ./core.c:9596>:
+            do_div()
+    tg_set_bandwidth() <int tg_set_bandwidth (struct task_group *tg, u64 period_us, u64 quota_us, u64 burst_us) at ./core.c:9775>:
+        tg_set_cfs_bandwidth() <int tg_set_cfs_bandwidth (struct task_group *tg, u64 period_us, u64 quota_us, u64 burst_us) at ./core.c:9504>:
+            guard()
+            cpus_read_lock()
+            cfs_bandwidth_usage_inc()
+            scoped_guard()
+            ns_to_ktime()
+            start_cfs_bandwidth()
+            for_each_online_cpu()
+            unthrottle_cfs_rq()
+            cfs_bandwidth_usage_dec()
+        scx_group_set_bandwidth()
+cpu_quota_read_s64() <s64 cpu_quota_read_s64 (struct cgroup_subsys_state *css, struct cftype *cft) at ./core.c:9825>:
+    tg_bandwidth() <void tg_bandwidth (struct task_group *tg, u64 *period_us_p, u64 *quota_us_p, u64 *burst_us_p) at ./core.c:9746>:
+        tg_get_cfs_period() <u64 tg_get_cfs_period (struct task_group *tg) at ./core.c:9573>:
+            ktime_to_ns()
+            do_div()
+        tg_get_cfs_quota() <u64 tg_get_cfs_quota (struct task_group *tg) at ./core.c:9583>:
+            do_div()
+        tg_get_cfs_burst() <u64 tg_get_cfs_burst (struct task_group *tg) at ./core.c:9596>:
+            do_div()
+    css_tg()
+cpu_quota_write_s64() <int cpu_quota_write_s64 (struct cgroup_subsys_state *css, struct cftype *cftype, s64 quota_us) at ./core.c:9853>:
+    css_tg()
+    tg_bandwidth() <void tg_bandwidth (struct task_group *tg, u64 *period_us_p, u64 *quota_us_p, u64 *burst_us_p) at ./core.c:9746>:
+        tg_get_cfs_period() <u64 tg_get_cfs_period (struct task_group *tg) at ./core.c:9573>:
+            ktime_to_ns()
+            do_div()
+        tg_get_cfs_quota() <u64 tg_get_cfs_quota (struct task_group *tg) at ./core.c:9583>:
+            do_div()
+        tg_get_cfs_burst() <u64 tg_get_cfs_burst (struct task_group *tg) at ./core.c:9596>:
+            do_div()
+    tg_set_bandwidth() <int tg_set_bandwidth (struct task_group *tg, u64 period_us, u64 quota_us, u64 burst_us) at ./core.c:9775>:
+        tg_set_cfs_bandwidth() <int tg_set_cfs_bandwidth (struct task_group *tg, u64 period_us, u64 quota_us, u64 burst_us) at ./core.c:9504>:
+            guard()
+            cpus_read_lock()
+            cfs_bandwidth_usage_inc()
+            scoped_guard()
+            ns_to_ktime()
+            start_cfs_bandwidth()
+            for_each_online_cpu()
+            unthrottle_cfs_rq()
+            cfs_bandwidth_usage_dec()
+        scx_group_set_bandwidth()
+cpu_rt_group_init() <int __init cpu_rt_group_init (void) at ./core.c:10017>:
+    rt_group_sched_enabled()
+    WARN_ON()
+    cgroup_add_legacy_cftypes()
+cpu_rt_period_read_uint() <u64 cpu_rt_period_read_uint (struct cgroup_subsys_state *css, struct cftype *cft) at ./core.c:9896>:
+    sched_group_rt_period()
+    css_tg()
+cpu_rt_period_write_uint() <int cpu_rt_period_write_uint (struct cgroup_subsys_state *css, struct cftype *cftype, u64 rt_period_us) at ./core.c:9890>:
+    sched_group_set_rt_period()
+    css_tg()
+cpu_rt_runtime_read() <s64 cpu_rt_runtime_read (struct cgroup_subsys_state *css, struct cftype *cft) at ./core.c:9884>:
+    sched_group_rt_runtime()
+    css_tg()
+cpu_rt_runtime_write() <int cpu_rt_runtime_write (struct cgroup_subsys_state *css, struct cftype *cft, s64 val) at ./core.c:9878>:
+    sched_group_set_rt_runtime()
+    css_tg()
+cpu_shares_read_u64() <u64 cpu_shares_read_u64 (struct cgroup_subsys_state *css, struct cftype *cft) at ./core.c:9492>:
+    tg_weight() <unsigned long tg_weight (struct task_group *tg) at ./core.c:9469>:
+        scale_load_down()
+        sched_weight_from_cgroup()
+    css_tg()
+cpu_shares_write_u64() <int cpu_shares_write_u64 (struct cgroup_subsys_state *css, struct cftype *cftype, u64 shareval) at ./core.c:9478>:
+    scale_load_down()
+    sched_group_set_shares()
+    css_tg()
+    scale_load()
+    scx_group_set_weight()
+    sched_weight_to_cgroup()
+cpu_uclamp_max_show() <int cpu_uclamp_max_show (struct seq_file *sf, void *v) at ./core.c:9461>:
+    cpu_uclamp_print() <inline void cpu_uclamp_print (struct seq_file *sf, enum uclamp_id clamp_id) at ./core.c:9432>:
+        scoped_guard()
+        css_tg()
+        seq_css()
+        seq_puts()
+        div_u64_rem()
+        POW10()
+        seq_printf()
+cpu_uclamp_max_write() <ssize_t cpu_uclamp_max_write (struct kernfs_open_file *of, char *buf, size_t nbytes, loff_t off) at ./core.c:9425>:
+    cpu_uclamp_write() <ssize_t cpu_uclamp_write (struct kernfs_open_file *of, char *buf, size_t nbytes, loff_t off, enum uclamp_id clamp_id) at ./core.c:9386>:
+        capacity_from_percent() <inline struct uclamp_request capacity_from_percent (char *buf) at ./core.c:9360>:
+            strim()
+            strcmp()
+            cgroup_parse_float()
+            DIV_ROUND_CLOSEST_ULL()
+        sched_uclamp_enable()
+        guard()
+        css_tg()
+        of_css()
+        uclamp_se_set()
+        cpu_util_update_eff() <void cpu_util_update_eff (struct cgroup_subsys_state *css) at ./core.c:9295>:
+            lockdep_assert_held()
+            WARN_ON_ONCE()
+            rcu_read_lock_held()
+            css_for_each_descendant_pre()
+            css_tg()
+            for_each_clamp_id()
+            min()
+            uclamp_bucket_id()
+            css_rightmost_descendant()
+            uclamp_update_active_tasks() <inline void uclamp_update_active_tasks (struct cgroup_subsys_state *css) at ./core.c:1878>:
+                css_task_iter_start()
+                css_task_iter_next()
+                uclamp_update_active() <inline void uclamp_update_active (struct task_struct *p) at ./core.c:1848>:
+                    task_rq_lock()
+                    for_each_clamp_id()
+                    uclamp_rq_reinc_id() <inline void uclamp_rq_reinc_id (struct rq *rq, struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1830>:
+                        uclamp_rq_dec_id() <inline void uclamp_rq_dec_id (struct rq *rq, struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1713>:
+                            lockdep_assert_rq_held()
+                            unlikely()
+                            WARN_ON_ONCE()
+                            likely()
+                            uclamp_rq_get()
+                            uclamp_rq_max_value() <inline unsigned int uclamp_rq_max_value (struct rq *rq, enum uclamp_id clamp_id, unsigned int clamp_value) at ./core.c:1557>:
+                                uclamp_idle_value() <inline unsigned int uclamp_idle_value (struct rq *rq, enum uclamp_id clamp_id, unsigned int clamp_value) at ./core.c:1530>:
+                                    uclamp_none()
+                            uclamp_rq_set()
+                        uclamp_rq_inc_id() <inline void uclamp_rq_inc_id (struct rq *rq, struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1675>:
+                            lockdep_assert_rq_held()
+                            uclamp_eff_get() <inline struct uclamp_se uclamp_eff_get (struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1640>:
+                                uclamp_tg_restrict() <inline struct uclamp_se uclamp_tg_restrict (struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1605>:
+                                    task_group_is_autogroup()
+                                    task_group()
+                                    clamp()
+                                    uclamp_se_set()
+                                unlikely()
+                            uclamp_idle_reset() <inline void uclamp_idle_reset (struct rq *rq, enum uclamp_id clamp_id, unsigned int clamp_value) at ./core.c:1546>:
+                                uclamp_rq_set()
+                            uclamp_rq_get()
+                            uclamp_rq_set()
+                    task_rq_unlock()
+                css_task_iter_end()
+cpu_uclamp_min_show() <int cpu_uclamp_min_show (struct seq_file *sf, void *v) at ./core.c:9455>:
+    cpu_uclamp_print() <inline void cpu_uclamp_print (struct seq_file *sf, enum uclamp_id clamp_id) at ./core.c:9432>:
+        scoped_guard()
+        css_tg()
+        seq_css()
+        seq_puts()
+        div_u64_rem()
+        POW10()
+        seq_printf()
+cpu_uclamp_min_write() <ssize_t cpu_uclamp_min_write (struct kernfs_open_file *of, char *buf, size_t nbytes, loff_t off) at ./core.c:9418>:
+    cpu_uclamp_write() <ssize_t cpu_uclamp_write (struct kernfs_open_file *of, char *buf, size_t nbytes, loff_t off, enum uclamp_id clamp_id) at ./core.c:9386>:
+        capacity_from_percent() <inline struct uclamp_request capacity_from_percent (char *buf) at ./core.c:9360>:
+            strim()
+            strcmp()
+            cgroup_parse_float()
+            DIV_ROUND_CLOSEST_ULL()
+        sched_uclamp_enable()
+        guard()
+        css_tg()
+        of_css()
+        uclamp_se_set()
+        cpu_util_update_eff() <void cpu_util_update_eff (struct cgroup_subsys_state *css) at ./core.c:9295>:
+            lockdep_assert_held()
+            WARN_ON_ONCE()
+            rcu_read_lock_held()
+            css_for_each_descendant_pre()
+            css_tg()
+            for_each_clamp_id()
+            min()
+            uclamp_bucket_id()
+            css_rightmost_descendant()
+            uclamp_update_active_tasks() <inline void uclamp_update_active_tasks (struct cgroup_subsys_state *css) at ./core.c:1878>:
+                css_task_iter_start()
+                css_task_iter_next()
+                uclamp_update_active() <inline void uclamp_update_active (struct task_struct *p) at ./core.c:1848>:
+                    task_rq_lock()
+                    for_each_clamp_id()
+                    uclamp_rq_reinc_id() <inline void uclamp_rq_reinc_id (struct rq *rq, struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1830>:
+                        uclamp_rq_dec_id() <inline void uclamp_rq_dec_id (struct rq *rq, struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1713>:
+                            lockdep_assert_rq_held()
+                            unlikely()
+                            WARN_ON_ONCE()
+                            likely()
+                            uclamp_rq_get()
+                            uclamp_rq_max_value() <inline unsigned int uclamp_rq_max_value (struct rq *rq, enum uclamp_id clamp_id, unsigned int clamp_value) at ./core.c:1557>:
+                                uclamp_idle_value() <inline unsigned int uclamp_idle_value (struct rq *rq, enum uclamp_id clamp_id, unsigned int clamp_value) at ./core.c:1530>:
+                                    uclamp_none()
+                            uclamp_rq_set()
+                        uclamp_rq_inc_id() <inline void uclamp_rq_inc_id (struct rq *rq, struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1675>:
+                            lockdep_assert_rq_held()
+                            uclamp_eff_get() <inline struct uclamp_se uclamp_eff_get (struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1640>:
+                                uclamp_tg_restrict() <inline struct uclamp_se uclamp_tg_restrict (struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1605>:
+                                    task_group_is_autogroup()
+                                    task_group()
+                                    clamp()
+                                    uclamp_se_set()
+                                unlikely()
+                            uclamp_idle_reset() <inline void uclamp_idle_reset (struct rq *rq, enum uclamp_id clamp_id, unsigned int clamp_value) at ./core.c:1546>:
+                                uclamp_rq_set()
+                            uclamp_rq_get()
+                            uclamp_rq_set()
+                    task_rq_unlock()
+                css_task_iter_end()
+cpu_weight_nice_read_s64() <s64 cpu_weight_nice_read_s64 (struct cgroup_subsys_state *css, struct cftype *cft) at ./core.c:10097>:
+    tg_weight() <unsigned long tg_weight (struct task_group *tg) at ./core.c:9469>:
+        scale_load_down()
+        sched_weight_from_cgroup()
+    css_tg()
+    ARRAY_SIZE()
+    abs()
+    PRIO_TO_NICE()
+cpu_weight_nice_write_s64() <int cpu_weight_nice_write_s64 (struct cgroup_subsys_state *css, struct cftype *cft, s64 nice) at ./core.c:10115>:
+    NICE_TO_PRIO()
+    array_index_nospec()
+    sched_group_set_shares()
+    css_tg()
+    scale_load()
+    scx_group_set_weight()
+    sched_weight_to_cgroup()
+cpu_weight_read_u64() <u64 cpu_weight_read_u64 (struct cgroup_subsys_state *css, struct cftype *cft) at ./core.c:10074>:
+    sched_weight_to_cgroup()
+    tg_weight() <unsigned long tg_weight (struct task_group *tg) at ./core.c:9469>:
+        scale_load_down()
+        sched_weight_from_cgroup()
+    css_tg()
+cpu_weight_write_u64() <int cpu_weight_write_u64 (struct cgroup_subsys_state *css, struct cftype *cft, u64 cgrp_weight) at ./core.c:10080>:
+    sched_weight_from_cgroup()
+    sched_group_set_shares()
+    css_tg()
+    scale_load()
+    scx_group_set_weight()
+cpus_equal_capacity() <bool cpus_equal_capacity (int this_cpu, int that_cpu) at ./core.c:3817>:
+    sched_asym_cpucap_active()
+    arch_scale_cpu_capacity()
+cpus_share_resources() <bool cpus_share_resources (int this_cpu, int that_cpu) at ./core.c:3840>:
+    per_cpu()
+cpuset_cpumask_can_shrink() <int cpuset_cpumask_can_shrink (const struct cpumask *cur, const struct cpumask *trial) at ./core.c:7992>:
+    cpumask_empty()
+    dl_cpuset_cpumask_can_shrink()
+curr_task() <struct task_struct *curr_task (int cpu) at ./core.c:9012>:
+    cpu_curr()
+deactivate_task() <void deactivate_task (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2153>:
+    WARN_ON_ONCE()
+    WRITE_ONCE()
+    ASSERT_EXCLUSIVE_WRITER()
+    dequeue_task() <inline bool dequeue_task (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2121>:
+        sched_core_enabled()
+        sched_core_dequeue() <inline void sched_core_dequeue (struct rq *rq, struct task_struct *p, int flags) at ./core.c:528>
+        update_rq_clock() <void update_rq_clock (struct rq *rq) at ./core.c:845>:
+            lockdep_assert_rq_held()
+            sched_feat()
+            WARN_ON_ONCE()
+            sched_clock_cpu()
+            cpu_of()
+            scx_rq_clock_update()
+            update_rq_clock_task() <void update_rq_clock_task (struct rq *rq, s64 delta) at ./core.c:786>:
+                irqtime_enabled()
+                irq_time_read()
+                cpu_of()
+                delayacct_irq()
+                static_key_false()
+                paravirt_steal_clock()
+                unlikely()
+                sched_feat()
+                update_irq_load_avg()
+                update_rq_clock_pelt()
+        sched_info_dequeue()
+        psi_dequeue()
+        uclamp_rq_dec() <inline void uclamp_rq_dec (struct rq *rq, struct task_struct *p) at ./core.c:2065>:
+            uclamp_is_used()
+            unlikely()
+            for_each_clamp_id()
+            uclamp_rq_dec_id() <inline void uclamp_rq_dec_id (struct rq *rq, struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1713>:
+                lockdep_assert_rq_held()
+                unlikely()
+                WARN_ON_ONCE()
+                likely()
+                uclamp_rq_get()
+                uclamp_rq_max_value() <inline unsigned int uclamp_rq_max_value (struct rq *rq, enum uclamp_id clamp_id, unsigned int clamp_value) at ./core.c:1557>:
+                    uclamp_idle_value() <inline unsigned int uclamp_idle_value (struct rq *rq, enum uclamp_id clamp_id, unsigned int clamp_value) at ./core.c:1530>:
+                        uclamp_none()
+                uclamp_rq_set()
+default_wake_function() <int default_wake_function (wait_queue_entry_t *curr, unsigned mode, int wake_flags, void *key) at ./core.c:7246>:
+    WARN_ON_ONCE()
+    try_to_wake_up() <int try_to_wake_up (struct task_struct *p, unsigned int state, int wake_flags) at ./core.c:4092>:
+        guard()
+        WARN_ON_ONCE()
+        ttwu_state_match() <__always_inline bool ttwu_state_match (struct task_struct *p, unsigned int state, int *success) at ./core.c:3941>:
+            IS_ENABLED()
+            WARN_ON_ONCE()
+        trace_sched_waking()
+        ttwu_do_wakeup() <inline void ttwu_do_wakeup (struct task_struct *p) at ./core.c:3628>:
+            WRITE_ONCE()
+            trace_sched_wakeup()
+        scoped_guard()
+        smp_mb__after_spinlock()
+        smp_rmb()
+        READ_ONCE()
+        ttwu_runnable() <int ttwu_runnable (struct task_struct *p, int wake_flags) at ./core.c:3708>:
+            task_on_rq_queued()
+            update_rq_clock() <void update_rq_clock (struct rq *rq) at ./core.c:845>:
+                lockdep_assert_rq_held()
+                sched_feat()
+                WARN_ON_ONCE()
+                sched_clock_cpu()
+                cpu_of()
+                scx_rq_clock_update()
+                update_rq_clock_task() <void update_rq_clock_task (struct rq *rq, s64 delta) at ./core.c:786>:
+                    irqtime_enabled()
+                    irq_time_read()
+                    cpu_of()
+                    delayacct_irq()
+                    static_key_false()
+                    paravirt_steal_clock()
+                    unlikely()
+                    sched_feat()
+                    update_irq_load_avg()
+                    update_rq_clock_pelt()
+            enqueue_task() <void enqueue_task (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2095>:
+                update_rq_clock() <void update_rq_clock (struct rq *rq) at ./core.c:845>:
+                    lockdep_assert_rq_held()
+                    sched_feat()
+                    WARN_ON_ONCE()
+                    sched_clock_cpu()
+                    cpu_of()
+                    scx_rq_clock_update()
+                    update_rq_clock_task() <void update_rq_clock_task (struct rq *rq, s64 delta) at ./core.c:786>:
+                        irqtime_enabled()
+                        irq_time_read()
+                        cpu_of()
+                        delayacct_irq()
+                        static_key_false()
+                        paravirt_steal_clock()
+                        unlikely()
+                        sched_feat()
+                        update_irq_load_avg()
+                        update_rq_clock_pelt()
+                uclamp_rq_inc() <inline void uclamp_rq_inc (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2064>:
+                    uclamp_is_used()
+                    unlikely()
+                    for_each_clamp_id()
+                    uclamp_rq_inc_id() <inline void uclamp_rq_inc_id (struct rq *rq, struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1675>:
+                        lockdep_assert_rq_held()
+                        uclamp_eff_get() <inline struct uclamp_se uclamp_eff_get (struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1640>:
+                            uclamp_tg_restrict() <inline struct uclamp_se uclamp_tg_restrict (struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1605>:
+                                task_group_is_autogroup()
+                                task_group()
+                                clamp()
+                                uclamp_se_set()
+                            unlikely()
+                        uclamp_idle_reset() <inline void uclamp_idle_reset (struct rq *rq, enum uclamp_id clamp_id, unsigned int clamp_value) at ./core.c:1546>:
+                            uclamp_rq_set()
+                        uclamp_rq_get()
+                        uclamp_rq_set()
+                psi_enqueue()
+                sched_info_enqueue()
+                sched_core_enabled()
+                sched_core_enqueue() <inline void sched_core_enqueue (struct rq *rq, struct task_struct *p) at ./core.c:526>
+            task_on_cpu()
+            wakeup_preempt() <void wakeup_preempt (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2185>:
+                sched_class_above()
+                resched_curr() <void resched_curr (struct rq *rq) at ./core.c:1154>:
+                task_on_rq_queued()
+                test_tsk_need_resched()
+                rq_clock_skip_update()
+            ttwu_do_wakeup() <inline void ttwu_do_wakeup (struct task_struct *p) at ./core.c:3628>:
+                WRITE_ONCE()
+                trace_sched_wakeup()
+        smp_acquire__after_ctrl_dep()
+        WRITE_ONCE()
+        smp_load_acquire()
+        ttwu_queue_wakelist() <bool ttwu_queue_wakelist (struct task_struct *p, int cpu, int wake_flags) at ./core.c:3897>:
+            sched_feat()
+            ttwu_queue_cond() <inline bool ttwu_queue_cond (struct task_struct *p, int cpu) at ./core.c:3848>:
+                scx_allow_ttwu_queue()
+                cpu_active()
+                cpumask_test_cpu()
+                cpus_share_cache() <bool cpus_share_cache (int this_cpu, int that_cpu) at ./core.c:3828>:
+                    per_cpu()
+                smp_processor_id()
+                cpu_rq()
+            sched_clock_cpu()
+        task_cpu()
+        smp_cond_load_acquire()
+        select_task_rq() <inline int select_task_rq (struct task_struct *p, int cpu, int *wake_flags) at ./core.c:3516>:
+            lockdep_assert_held()
+            is_migration_disabled()
+            cpumask_any()
+            unlikely()
+            is_cpu_allowed() <inline bool is_cpu_allowed (struct task_struct *p, int cpu) at ./core.c:2403>:
+                task_allowed_on_cpu()
+                is_migration_disabled()
+                cpu_online()
+                cpu_active()
+                kthread_is_per_cpu()
+                cpu_dying()
+            select_fallback_rq() <int select_fallback_rq (int cpu, struct task_struct *p) at ./core.c:3447>:
+                cpu_to_node()
+                cpumask_of_node()
+                for_each_cpu()
+                is_cpu_allowed() <inline bool is_cpu_allowed (struct task_struct *p, int cpu) at ./core.c:2403>:
+                    task_allowed_on_cpu()
+                    is_migration_disabled()
+                    cpu_online()
+                    cpu_active()
+                    kthread_is_per_cpu()
+                    cpu_dying()
+                cpuset_cpus_allowed_fallback()
+                set_cpus_allowed_force() <void set_cpus_allowed_force (struct task_struct *p, const struct cpumask *new_mask) at ./core.c:2705>:
+                    scoped_guard()
+                    do_set_cpus_allowed() <void do_set_cpus_allowed (struct task_struct *p, struct affinity_context *ctx) at ./core.c:2695>:
+                        scoped_guard()
+                    kfree_rcu()
+                task_cpu_fallback_mask()
+                BUG()
+                printk_ratelimit()
+                printk_deferred()
+                task_pid_nr()
+            task_cpu()
+        delayacct_blkio_end()
+        atomic_dec()
+        task_rq()
+        psi_ttwu_dequeue()
+        set_task_cpu() <void set_task_cpu (struct task_struct *p, unsigned int new_cpu) at ./core.c:3243>:
+            READ_ONCE()
+            WARN_ON_ONCE()
+            task_on_rq_migrating()
+            lockdep_is_held()
+            task_rq()
+            cpu_online()
+            is_migration_disabled()
+            trace_sched_migrate_task()
+            task_cpu()
+            perf_event_task_migrate()
+        ttwu_queue() <void ttwu_queue (struct task_struct *p, int cpu, int wake_flags) at ./core.c:3908>:
+            cpu_rq()
+            ttwu_queue_wakelist() <bool ttwu_queue_wakelist (struct task_struct *p, int cpu, int wake_flags) at ./core.c:3897>:
+                sched_feat()
+                ttwu_queue_cond() <inline bool ttwu_queue_cond (struct task_struct *p, int cpu) at ./core.c:3848>:
+                    scx_allow_ttwu_queue()
+                    cpu_active()
+                    cpumask_test_cpu()
+                    cpus_share_cache() <bool cpus_share_cache (int this_cpu, int that_cpu) at ./core.c:3828>:
+                        per_cpu()
+                    smp_processor_id()
+                    cpu_rq()
+                sched_clock_cpu()
+            rq_lock()
+            update_rq_clock() <void update_rq_clock (struct rq *rq) at ./core.c:845>:
+                lockdep_assert_rq_held()
+                sched_feat()
+                WARN_ON_ONCE()
+                sched_clock_cpu()
+                cpu_of()
+                scx_rq_clock_update()
+                update_rq_clock_task() <void update_rq_clock_task (struct rq *rq, s64 delta) at ./core.c:786>:
+                    irqtime_enabled()
+                    irq_time_read()
+                    cpu_of()
+                    delayacct_irq()
+                    static_key_false()
+                    paravirt_steal_clock()
+                    unlikely()
+                    sched_feat()
+                    update_irq_load_avg()
+                    update_rq_clock_pelt()
+            ttwu_do_activate() <void ttwu_do_activate (struct rq *rq, struct task_struct *p, int wake_flags, struct rq_flags *rf) at ./core.c:3647>:
+                lockdep_assert_rq_held()
+                delayacct_blkio_end()
+                atomic_dec()
+                task_rq()
+                activate_task() <void activate_task (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2142>:
+                    task_on_rq_migrating()
+                    enqueue_task() <void enqueue_task (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2095>:
+                        update_rq_clock() <void update_rq_clock (struct rq *rq) at ./core.c:845>:
+                            lockdep_assert_rq_held()
+                            sched_feat()
+                            WARN_ON_ONCE()
+                            sched_clock_cpu()
+                            cpu_of()
+                            scx_rq_clock_update()
+                            update_rq_clock_task() <void update_rq_clock_task (struct rq *rq, s64 delta) at ./core.c:786>:
+                                irqtime_enabled()
+                                irq_time_read()
+                                cpu_of()
+                                delayacct_irq()
+                                static_key_false()
+                                paravirt_steal_clock()
+                                unlikely()
+                                sched_feat()
+                                update_irq_load_avg()
+                                update_rq_clock_pelt()
+                        uclamp_rq_inc() <inline void uclamp_rq_inc (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2064>:
+                            uclamp_is_used()
+                            unlikely()
+                            for_each_clamp_id()
+                            uclamp_rq_inc_id() <inline void uclamp_rq_inc_id (struct rq *rq, struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1675>:
+                                lockdep_assert_rq_held()
+                                uclamp_eff_get() <inline struct uclamp_se uclamp_eff_get (struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1640>:
+                                    uclamp_tg_restrict() <inline struct uclamp_se uclamp_tg_restrict (struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1605>:
+                                        task_group_is_autogroup()
+                                        task_group()
+                                        clamp()
+                                        uclamp_se_set()
+                                    unlikely()
+                                uclamp_idle_reset() <inline void uclamp_idle_reset (struct rq *rq, enum uclamp_id clamp_id, unsigned int clamp_value) at ./core.c:1546>:
+                                    uclamp_rq_set()
+                                uclamp_rq_get()
+                                uclamp_rq_set()
+                        psi_enqueue()
+                        sched_info_enqueue()
+                        sched_core_enabled()
+                        sched_core_enqueue() <inline void sched_core_enqueue (struct rq *rq, struct task_struct *p) at ./core.c:526>
+                    WRITE_ONCE()
+                    ASSERT_EXCLUSIVE_WRITER()
+                wakeup_preempt() <void wakeup_preempt (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2185>:
+                    sched_class_above()
+                    resched_curr() <void resched_curr (struct rq *rq) at ./core.c:1154>:
+                    task_on_rq_queued()
+                    test_tsk_need_resched()
+                    rq_clock_skip_update()
+                ttwu_do_wakeup() <inline void ttwu_do_wakeup (struct task_struct *p) at ./core.c:3628>:
+                    WRITE_ONCE()
+                    trace_sched_wakeup()
+                rq_unpin_lock()
+                rq_repin_lock()
+            rq_unlock()
+        ttwu_stat() <void ttwu_stat (struct task_struct *p, int cpu, int wake_flags) at ./core.c:3589>:
+            schedstat_enabled()
+            this_rq()
+            guard()
+            for_each_domain()
+            cpumask_test_cpu()
+            sched_domain_span()
+do_task_dead() <void __noreturn do_task_dead (void) at ./core.c:6924>:
+    set_special_state()
+    BUG()
+    cpu_relax()
+dump_cpu_task() <void dump_cpu_task (int cpu) at ./core.c:10263>:
+    in_hardirq()
+    smp_processor_id()
+    get_irq_regs()
+    show_regs()
+    trigger_single_cpu_backtrace()
+    pr_info()
+    sched_show_task() <void sched_show_task (struct task_struct *p) at ./core.c:7840>:
+        try_get_task_stack()
+        pr_info()
+        task_state_to_char()
+        task_is_running()
+        pr_cont()
+        stack_not_used()
+        rcu_read_lock()
+        pid_alive()
+        task_pid_nr()
+        rcu_dereference()
+        rcu_read_unlock()
+        task_tgid_nr()
+        read_task_thread_flags()
+        print_worker_info()
+        print_stop_info()
+        print_scx_info()
+        show_stack()
+        put_task_stack()
+    cpu_curr()
+dup_user_cpus_ptr() <int dup_user_cpus_ptr (struct task_struct *dst, struct task_struct *src, int node) at ./core.c:2728>:
+    data_race()
+    alloc_user_cpus_ptr()
+    raw_spin_lock_irqsave()
+    swap()
+    cpumask_copy()
+    raw_spin_unlock_irqrestore()
+    unlikely()
+    kfree()
+dynamic_cond_resched() <int __sched dynamic_cond_resched (void) at ./core.c:7459>:
+    static_branch_unlikely()
+dynamic_might_resched() <int __sched dynamic_might_resched (void) at ./core.c:7468>:
+    static_branch_unlikely()
+dynamic_preempt_schedule() <void __sched notrace dynamic_preempt_schedule (void) at ./core.c:7134>:
+    static_branch_unlikely()
+    preempt_schedule() <asmlinkage __visible void __sched notrace preempt_schedule (void) at ./core.c:7111>:
+        likely()
+        preemptible()
+        preempt_schedule_common() <void __sched notrace preempt_schedule_common (void) at ./core.c:7077>:
+            preempt_disable_notrace()
+            preempt_latency_start() <inline void preempt_latency_start (int val) at ./core.c:5810>:
+                preempt_count()
+                get_lock_parent_ip()
+                trace_preempt_off()
+            preempt_latency_stop() <inline void preempt_latency_stop (int val) at ./core.c:5811>:
+                preempt_count()
+                trace_preempt_on()
+                get_lock_parent_ip()
+            preempt_enable_no_resched_notrace()
+            need_resched()
+dynamic_preempt_schedule_notrace() <void __sched notrace dynamic_preempt_schedule_notrace (void) at ./core.c:7207>:
+    static_branch_unlikely()
+    preempt_schedule_notrace() <asmlinkage __visible void __sched notrace preempt_schedule_notrace (void) at ./core.c:7159>:
+        likely()
+        preemptible()
+        preempt_disable_notrace()
+        preempt_latency_start() <inline void preempt_latency_start (int val) at ./core.c:5810>:
+            preempt_count()
+            get_lock_parent_ip()
+            trace_preempt_off()
+        exception_enter()
+        exception_exit()
+        preempt_latency_stop() <inline void preempt_latency_stop (int val) at ./core.c:5811>:
+            preempt_count()
+            trace_preempt_on()
+            get_lock_parent_ip()
+        preempt_enable_no_resched_notrace()
+        need_resched()
+finish_task() <inline void finish_task (struct task_struct *prev) at ./core.c:4900>:
+    smp_store_release()
+fire_sched_in_preempt_notifiers() <inline void fire_sched_in_preempt_notifiers (struct task_struct *curr) at ./core.c:4876>:
+    static_branch_unlikely()
+fire_sched_out_preempt_notifiers() <inline void fire_sched_out_preempt_notifiers (struct task_struct *curr, struct task_struct *next) at ./core.c:4881>:
+    static_branch_unlikely()
+force_compatible_cpus_allowed_ptr() <void force_compatible_cpus_allowed_ptr (struct task_struct *p) at ./core.c:3179>:
+    task_cpu_possible_mask()
+    alloc_cpumask_var()
+    cpus_read_lock()
+    cpumask_available()
+    restrict_cpus_allowed_ptr() <int restrict_cpus_allowed_ptr (struct task_struct *p, struct cpumask *new_mask, const struct cpumask *subset_mask) at ./core.c:3137>:
+        task_rq_lock()
+        task_has_dl_policy()
+        dl_bandwidth_enabled()
+        cpumask_and()
+        task_user_cpus()
+        task_rq_unlock()
+    cpuset_cpus_allowed()
+    printk_ratelimit()
+    printk_deferred()
+    task_pid_nr()
+    cpumask_pr_args()
+    WARN_ON()
+    set_cpus_allowed_ptr() <int set_cpus_allowed_ptr (struct task_struct *p, const struct cpumask *new_mask) at ./core.c:3117>:
+    cpus_read_unlock()
+    free_cpumask_var()
+force_schedstat_enabled() <void force_schedstat_enabled (void) at ./core.c:4516>:
+    schedstat_enabled()
+    pr_info()
+    static_branch_enable()
+get_nohz_timer_target() <int get_nohz_timer_target (void) at ./core.c:1205>:
+    smp_processor_id()
+    housekeeping_cpu()
+    idle_cpu()
+    housekeeping_cpumask()
+    guard()
+    for_each_domain()
+    for_each_cpu_and()
+    sched_domain_span()
+    housekeeping_any_cpu()
+get_wchan() <unsigned long get_wchan (struct task_struct *p) at ./core.c:2076>:
+    raw_spin_lock_irq()
+    READ_ONCE()
+    smp_rmb()
+    raw_spin_unlock_irq()
+hrtick_start() <void hrtick_start (struct rq *rq, u64 delay) at ./core.c:926>:
+    max_t()
+    ktime_add_ns()
+    hrtimer_cb_get_time()
+    this_rq()
+    smp_call_function_single_async()
+    cpu_of()
+in_sched_functions() <int in_sched_functions (unsigned long addr) at ./core.c:8580>:
+    in_lock_functions()
+io_schedule() <void __sched io_schedule (void) at ./core.c:7830>:
+    io_schedule_prepare() <int io_schedule_prepare (void) at ./core.c:7799>:
+        blk_flush_plug()
+    schedule() <asmlinkage __visible void __sched schedule (void) at ./core.c:6998>:
+        lockdep_assert()
+        task_is_running()
+        sched_submit_work() <inline void sched_submit_work (struct task_struct *tsk) at ./core.c:6940>:
+            lock_map_acquire_try()
+            wq_worker_sleeping()
+            io_wq_worker_sleeping()
+            WARN_ON_ONCE()
+            blk_flush_plug()
+            lock_map_release()
+        sched_update_worker() <void sched_update_worker (struct task_struct *tsk) at ./core.c:6977>:
+            blk_plug_invalidate_ts()
+            wq_worker_running()
+            io_wq_worker_running()
+    io_schedule_finish() <void io_schedule_finish (int token) at ./core.c:7808>:
+io_schedule_timeout() <long __sched io_schedule_timeout (long timeout) at ./core.c:7817>:
+    io_schedule_prepare() <int io_schedule_prepare (void) at ./core.c:7799>:
+        blk_flush_plug()
+    schedule_timeout()
+    io_schedule_finish() <void io_schedule_finish (int token) at ./core.c:7808>:
+kick_process() <void kick_process (struct task_struct *p) at ./core.c:3415>:
+    guard()
+    task_cpu()
+    smp_processor_id()
+    task_curr() <inline int task_curr (const struct task_struct *p) at ./core.c:2180>:
+        cpu_curr()
+        task_cpu()
+    smp_send_reschedule()
+kmap_local_sched_in() <inline void kmap_local_sched_in (void) at ./core.c:5058>:
+    unlikely()
+kmap_local_sched_out() <inline void kmap_local_sched_out (void) at ./core.c:5050>:
+    unlikely()
+migrate_disable() <void migrate_disable (void) at ./core.c:2382>:
+migrate_enable() <void migrate_enable (void) at ./core.c:2388>:
+migrate_swap() <int migrate_swap (struct task_struct *cur, struct task_struct *p, int target_cpu, int curr_cpu) at ./core.c:3365>:
+    cpu_active()
+    cpumask_test_cpu()
+    trace_sched_swap_numa()
+    stop_two_cpus()
+    migrate_swap_stop() <int migrate_swap_stop (void *data) at ./core.c:3330>:
+        cpu_active()
+        cpu_rq()
+        guard()
+        double_rq_lock() <void double_rq_lock (struct rq *rq1, struct rq *rq2) at ./core.c:698>:
+            lockdep_assert_irqs_disabled()
+            rq_order_less()
+            swap()
+            raw_spin_rq_lock()
+            raw_spin_rq_lock_nested() <void raw_spin_rq_lock_nested (struct rq *rq, int subclass) at ./core.c:639>:
+                preempt_disable()
+                sched_core_disabled()
+                raw_spin_lock_nested()
+                preempt_enable_no_resched()
+                likely()
+                raw_spin_unlock()
+            double_rq_clock_clear_update()
+        task_cpu()
+        cpumask_test_cpu()
+migrate_task_to() <int migrate_task_to (struct task_struct *p, int target_cpu) at ./core.c:8028>:
+    task_cpu()
+    cpumask_test_cpu()
+    trace_sched_move_numa()
+    stop_one_cpu()
+    migration_cpu_stop() <int migration_cpu_stop (void *data) at ./core.c:2513> (R):
+        this_rq()
+        local_irq_save()
+        flush_smp_call_function_queue()
+        context_unsafe_alias()
+        raw_spin_lock()
+        rq_lock()
+        WARN_ON_ONCE()
+        task_rq()
+        is_migration_disabled()
+        cpumask_test_cpu()
+        task_cpu()
+        task_on_rq_queued()
+        update_rq_clock() <void update_rq_clock (struct rq *rq) at ./core.c:845>:
+            lockdep_assert_rq_held()
+            sched_feat()
+            WARN_ON_ONCE()
+            sched_clock_cpu()
+            cpu_of()
+            scx_rq_clock_update()
+            update_rq_clock_task() <void update_rq_clock_task (struct rq *rq, s64 delta) at ./core.c:786>:
+                irqtime_enabled()
+                irq_time_read()
+                cpu_of()
+                delayacct_irq()
+                static_key_false()
+                paravirt_steal_clock()
+                unlikely()
+                sched_feat()
+                update_irq_load_avg()
+                update_rq_clock_pelt()
+        preempt_disable()
+        rq_unlock()
+        raw_spin_unlock_irqrestore()
+        stop_one_cpu_nowait()
+        migration_cpu_stop() <int migration_cpu_stop (void *data) at ./core.c:2513> (recursive: see 1026)
+        preempt_enable()
+        complete_all()
+migration_init() <int __init migration_init (void) at ./core.c:8573>:
+    sched_cpu_starting() <int sched_cpu_starting (unsigned int cpu) at ./core.c:8452>:
+        sched_core_cpu_starting() <inline void sched_core_cpu_starting (unsigned int cpu) at ./core.c:6460>
+        sched_rq_cpu_starting() <void sched_rq_cpu_starting (unsigned int cpu) at ./core.c:8444>:
+            cpu_rq()
+            update_max_interval()
+        sched_tick_start() <inline void sched_tick_start (int cpu) at ./core.c:5734>:
+            housekeeping_cpu()
+            WARN_ON_ONCE()
+            per_cpu_ptr()
+            atomic_xchg()
+            INIT_DELAYED_WORK()
+            sched_tick_remote() <void sched_tick_remote (struct work_struct *work) at ./core.c:5633>:
+                to_delayed_work()
+                container_of()
+                cpu_rq()
+                tick_nohz_tick_stopped_cpu()
+                guard()
+                cpu_online()
+                WARN_ON_ONCE()
+                update_rq_clock() <void update_rq_clock (struct rq *rq) at ./core.c:845>:
+                    lockdep_assert_rq_held()
+                    sched_feat()
+                    WARN_ON_ONCE()
+                    sched_clock_cpu()
+                    cpu_of()
+                    scx_rq_clock_update()
+                    update_rq_clock_task() <void update_rq_clock_task (struct rq *rq, s64 delta) at ./core.c:786>:
+                        irqtime_enabled()
+                        irq_time_read()
+                        cpu_of()
+                        delayacct_irq()
+                        static_key_false()
+                        paravirt_steal_clock()
+                        unlikely()
+                        sched_feat()
+                        update_irq_load_avg()
+                        update_rq_clock_pelt()
+                is_idle_task()
+                rq_clock_task()
+                calc_load_nohz_remote()
+                atomic_fetch_add_unless()
+                queue_delayed_work()
+            queue_delayed_work()
+    smp_processor_id()
+mm_init_cid() <void mm_init_cid (struct mm_struct *mm, struct task_struct *p) at ./core.c:10846>:
+    raw_spin_lock_init()
+    mutex_init()
+    IRQ_WORK_INIT_HARD()
+    mm_cid_irq_work() <void mm_cid_irq_work (struct irq_work *work) at ./core.c:10834>:
+        container_of()
+        schedule_work()
+    INIT_WORK()
+    mm_cid_work_fn() <void mm_cid_work_fn (struct work_struct *work) at ./core.c:10811>:
+        container_of()
+        guard()
+        scoped_guard()
+        mm_update_max_cids() <bool mm_update_max_cids (struct mm_struct *mm) at ./core.c:10483>:
+            cid_on_cpu()
+            lockdep_assert_held()
+            mm_cid_calc_pcpu_thrs() <inline unsigned int mm_cid_calc_pcpu_thrs (struct mm_mm_cid *mc) at ./core.c:10474>:
+                min()
+                max()
+                num_possible_cpus()
+            WRITE_ONCE()
+            smp_mb()
+        WARN_ON_ONCE()
+        cid_on_cpu()
+        mm_cid_fixup_cpus_to_tasks() <void mm_cid_fixup_cpus_to_tasks (struct mm_struct *mm) at ./core.c:10579>:
+            for_each_possible_cpu()
+            per_cpu_ptr()
+            cpu_rq()
+            guard()
+            cid_on_cpu()
+            mm_cid_transit_to_task() <inline void mm_cid_transit_to_task (struct task_struct *t, struct mm_cid_pcpu *pcp) at ./core.c:10569>:
+                cid_on_cpu()
+                cpu_cid_to_cid()
+                cid_to_transit_cid()
+            mm_drop_cid_on_cpu()
+            cid_in_transit()
+            cid_to_transit_cid()
+            mm_cid_complete_transit() <inline void mm_cid_complete_transit (struct mm_struct *mm, unsigned int mode) at ./core.c:10559>:
+                smp_mb()
+                WRITE_ONCE()
+    INIT_HLIST_HEAD()
+    cpumask_copy()
+    mm_cpus_allowed()
+    bitmap_zero()
+    mm_cidmask()
+    num_possible_cpus()
+normalize_rt_tasks() <void normalize_rt_tasks (void) at ./core.c:8956>:
+    read_lock()
+    for_each_process_thread()
+    schedstat_set()
+    rt_or_dl_task()
+    task_nice()
+    set_user_nice()
+    read_unlock()
+nr_context_switches() <unsigned long long nr_context_switches (void) at ./core.c:5344>:
+    for_each_possible_cpu()
+    cpu_rq()
+nr_context_switches_cpu() <unsigned long long nr_context_switches_cpu (int cpu) at ./core.c:5339>:
+    cpu_rq()
+nr_iowait() <unsigned int nr_iowait (void) at ./core.c:5397>:
+    for_each_possible_cpu()
+    nr_iowait_cpu() <unsigned int nr_iowait_cpu (int cpu) at ./core.c:5362>:
+        atomic_read()
+        cpu_rq()
+nr_running() <unsigned int nr_running (void) at ./core.c:5310>:
+    for_each_online_cpu()
+    cpu_rq()
+pick_task() <inline struct task_struct *pick_task (struct rq *rq, struct rq_flags *rf) at ./core.c:5989>:
+    for_each_active_class()
+    BUG()
+preempt_count_add() <void preempt_count_add (int val) at ./core.c:5755>:
+    DEBUG_LOCKS_WARN_ON()
+    preempt_count()
+    preempt_latency_start() <inline void preempt_latency_start (int val) at ./core.c:5810>:
+        preempt_count()
+        get_lock_parent_ip()
+        trace_preempt_off()
+preempt_count_sub() <void preempt_count_sub (int val) at ./core.c:5787>:
+    DEBUG_LOCKS_WARN_ON()
+    preempt_count()
+    preempt_latency_stop() <inline void preempt_latency_stop (int val) at ./core.c:5811>:
+        preempt_count()
+        trace_preempt_on()
+        get_lock_parent_ip()
+preempt_model_str() <const char *preempt_model_str (void) at ./core.c:7758>:
+    IS_ENABLED()
+    seq_buf_init()
+    seq_buf_puts()
+    seq_buf_printf()
+    seq_buf_str()
+preempt_notifier_dec() <void preempt_notifier_dec (void) at ./core.c:4811>:
+    static_branch_dec()
+preempt_notifier_inc() <void preempt_notifier_inc (void) at ./core.c:4805>:
+    static_branch_inc()
+preempt_notifier_register() <void preempt_notifier_register (struct preempt_notifier *notifier) at ./core.c:4821>:
+    static_branch_unlikely()
+    WARN()
+    hlist_add_head()
+preempt_notifier_unregister() <void preempt_notifier_unregister (struct preempt_notifier *notifier) at ./core.c:4836>:
+    hlist_del()
+preempt_schedule_irq() <asmlinkage __visible void __sched preempt_schedule_irq (void) at ./core.c:7226>:
+    BUG_ON()
+    preempt_count()
+    irqs_disabled()
+    exception_enter()
+    preempt_disable()
+    local_irq_enable()
+    local_irq_disable()
+    sched_preempt_enable_no_resched()
+    need_resched()
+    exception_exit()
+prepare_task() <inline void prepare_task (struct task_struct *next) at ./core.c:4888>:
+    WRITE_ONCE()
+prev_balance() <void prev_balance (struct rq *rq, struct task_struct *prev, struct rq_flags *rf) at ./core.c:5885>:
+    for_active_class_range()
+push_cpu_stop() <int push_cpu_stop (void *arg) at ./core.c:2627>:
+    this_rq()
+    raw_spin_lock_irq()
+    raw_spin_rq_lock()
+    task_rq()
+    is_migration_disabled()
+    lockdep_assert_rq_held()
+    move_queued_task_locked()
+    resched_curr() <void resched_curr (struct rq *rq) at ./core.c:1154>:
+    double_unlock_balance()
+    raw_spin_rq_unlock() <void raw_spin_rq_unlock (struct rq *rq) at ./core.c:690>:
+        raw_spin_unlock()
+        rq_lockp()
+    raw_spin_unlock_irq()
+    put_task_struct()
+queue_core_balance() <void queue_core_balance (struct rq *rq) at ./core.c:6341>:
+    sched_core_enabled()
+    queue_balance_callback()
+    per_cpu()
+raw_spin_rq_trylock() <bool raw_spin_rq_trylock (struct rq *rq) at ./core.c:665>:
+    preempt_disable()
+    sched_core_disabled()
+    raw_spin_trylock()
+    preempt_enable()
+    likely()
+    raw_spin_unlock()
+relax_compatible_cpus_allowed_ptr() <void relax_compatible_cpus_allowed_ptr (struct task_struct *p) at ./core.c:3225>:
+    task_user_cpus()
+    WARN_ON_ONCE()
+release_user_cpus_ptr() <void release_user_cpus_ptr (struct task_struct *p) at ./core.c:2780>:
+    kfree()
+    clear_user_cpus_ptr() <inline struct cpumask *clear_user_cpus_ptr (struct task_struct *p) at ./core.c:2771>:
+        swap()
+resched_cpu() <void resched_cpu (int cpu) at ./core.c:1185>:
+    cpu_rq()
+    raw_spin_rq_lock_irqsave()
+    cpu_online()
+    smp_processor_id()
+    resched_curr() <void resched_curr (struct rq *rq) at ./core.c:1154>:
+    raw_spin_rq_unlock_irqrestore()
+resched_curr_lazy() <void resched_curr_lazy (struct rq *rq) at ./core.c:1180>:
+    get_lazy_tif_bit() <__always_inline int get_lazy_tif_bit (void) at ./core.c:1172>:
+        dynamic_preempt_lazy() <__always_inline bool dynamic_preempt_lazy (void) at ./core.c:1166>:
+            static_branch_unlikely()
+            IS_ENABLED()
+rt_mutex_post_schedule() <void rt_mutex_post_schedule (void) at ./core.c:7292>:
+    sched_update_worker() <void sched_update_worker (struct task_struct *tsk) at ./core.c:6977>:
+        blk_plug_invalidate_ts()
+        wq_worker_running()
+        io_wq_worker_running()
+    lockdep_assert()
+    fetch_and_set()
+rt_mutex_pre_schedule() <void rt_mutex_pre_schedule (void) at ./core.c:7280>:
+    lockdep_assert()
+    fetch_and_set()
+    sched_submit_work() <inline void sched_submit_work (struct task_struct *tsk) at ./core.c:6940>:
+        lock_map_acquire_try()
+        wq_worker_sleeping()
+        io_wq_worker_sleeping()
+        WARN_ON_ONCE()
+        blk_flush_plug()
+        lock_map_release()
+rt_mutex_schedule() <void rt_mutex_schedule (void) at ./core.c:7286>:
+    lockdep_assert()
+rt_mutex_setprio() <void rt_mutex_setprio (struct task_struct *p, struct task_struct *pi_task) at ./core.c:7309>:
+    dl_prio()
+    update_rq_clock() <void update_rq_clock (struct rq *rq) at ./core.c:845>:
+        lockdep_assert_rq_held()
+        sched_feat()
+        WARN_ON_ONCE()
+        sched_clock_cpu()
+        cpu_of()
+        scx_rq_clock_update()
+        update_rq_clock_task() <void update_rq_clock_task (struct rq *rq, s64 delta) at ./core.c:786>:
+            irqtime_enabled()
+            irq_time_read()
+            cpu_of()
+            delayacct_irq()
+            static_key_false()
+            paravirt_steal_clock()
+            unlikely()
+            sched_feat()
+            update_irq_load_avg()
+            update_rq_clock_pelt()
+    unlikely()
+    WARN_ON()
+    trace_sched_pi_setprio()
+    scoped_guard()
+    dl_entity_preempt()
+    rt_prio()
+sched_can_stop_tick() <bool sched_can_stop_tick (struct rq *rq) at ./core.c:1349>:
+    scx_enabled()
+    scx_can_stop_tick()
+    cfs_task_bw_constrained()
+sched_cancel_fork() <void sched_cancel_fork (struct task_struct *p) at ./core.c:4727>:
+    scx_cancel_fork()
+sched_cgroup_fork() <int sched_cgroup_fork (struct task_struct *p, struct kernel_clone_args *kargs) at ./core.c:4697>:
+    raw_spin_lock_irqsave()
+    container_of()
+    task_group()
+    autogroup_task_group()
+    smp_processor_id()
+    raw_spin_unlock_irqrestore()
+    scx_fork()
+sched_change_begin() <struct sched_change_ctx *sched_change_begin (struct task_struct *p, unsigned int flags) at ./core.c:10869>:
+    this_cpu_ptr()
+    task_rq()
+    WARN_ON_ONCE()
+    lockdep_assert_rq_held()
+    update_rq_clock() <void update_rq_clock (struct rq *rq) at ./core.c:845>:
+        lockdep_assert_rq_held()
+        sched_feat()
+        WARN_ON_ONCE()
+        sched_clock_cpu()
+        cpu_of()
+        scx_rq_clock_update()
+        update_rq_clock_task() <void update_rq_clock_task (struct rq *rq, s64 delta) at ./core.c:786>:
+            irqtime_enabled()
+            irq_time_read()
+            cpu_of()
+            delayacct_irq()
+            static_key_false()
+            paravirt_steal_clock()
+            unlikely()
+            sched_feat()
+            update_irq_load_avg()
+            update_rq_clock_pelt()
+    dequeue_task() <inline bool dequeue_task (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2121>:
+        sched_core_enabled()
+        sched_core_dequeue() <inline void sched_core_dequeue (struct rq *rq, struct task_struct *p, int flags) at ./core.c:528>
+        update_rq_clock() <void update_rq_clock (struct rq *rq) at ./core.c:845>:
+            lockdep_assert_rq_held()
+            sched_feat()
+            WARN_ON_ONCE()
+            sched_clock_cpu()
+            cpu_of()
+            scx_rq_clock_update()
+            update_rq_clock_task() <void update_rq_clock_task (struct rq *rq, s64 delta) at ./core.c:786>:
+                irqtime_enabled()
+                irq_time_read()
+                cpu_of()
+                delayacct_irq()
+                static_key_false()
+                paravirt_steal_clock()
+                unlikely()
+                sched_feat()
+                update_irq_load_avg()
+                update_rq_clock_pelt()
+        sched_info_dequeue()
+        psi_dequeue()
+        uclamp_rq_dec() <inline void uclamp_rq_dec (struct rq *rq, struct task_struct *p) at ./core.c:2065>:
+            uclamp_is_used()
+            unlikely()
+            for_each_clamp_id()
+            uclamp_rq_dec_id() <inline void uclamp_rq_dec_id (struct rq *rq, struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1713>:
+                lockdep_assert_rq_held()
+                unlikely()
+                WARN_ON_ONCE()
+                likely()
+                uclamp_rq_get()
+                uclamp_rq_max_value() <inline unsigned int uclamp_rq_max_value (struct rq *rq, enum uclamp_id clamp_id, unsigned int clamp_value) at ./core.c:1557>:
+                    uclamp_idle_value() <inline unsigned int uclamp_idle_value (struct rq *rq, enum uclamp_id clamp_id, unsigned int clamp_value) at ./core.c:1530>:
+                        uclamp_none()
+                uclamp_rq_set()
+    put_prev_task()
+sched_change_end() <void sched_change_end (struct sched_change_ctx *ctx) at ./core.c:10916>:
+    task_rq()
+    lockdep_assert_rq_held()
+    WARN_ON_ONCE()
+    enqueue_task() <void enqueue_task (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2095>:
+        update_rq_clock() <void update_rq_clock (struct rq *rq) at ./core.c:845>:
+            lockdep_assert_rq_held()
+            sched_feat()
+            WARN_ON_ONCE()
+            sched_clock_cpu()
+            cpu_of()
+            scx_rq_clock_update()
+            update_rq_clock_task() <void update_rq_clock_task (struct rq *rq, s64 delta) at ./core.c:786>:
+                irqtime_enabled()
+                irq_time_read()
+                cpu_of()
+                delayacct_irq()
+                static_key_false()
+                paravirt_steal_clock()
+                unlikely()
+                sched_feat()
+                update_irq_load_avg()
+                update_rq_clock_pelt()
+        uclamp_rq_inc() <inline void uclamp_rq_inc (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2064>:
+            uclamp_is_used()
+            unlikely()
+            for_each_clamp_id()
+            uclamp_rq_inc_id() <inline void uclamp_rq_inc_id (struct rq *rq, struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1675>:
+                lockdep_assert_rq_held()
+                uclamp_eff_get() <inline struct uclamp_se uclamp_eff_get (struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1640>:
+                    uclamp_tg_restrict() <inline struct uclamp_se uclamp_tg_restrict (struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1605>:
+                        task_group_is_autogroup()
+                        task_group()
+                        clamp()
+                        uclamp_se_set()
+                    unlikely()
+                uclamp_idle_reset() <inline void uclamp_idle_reset (struct rq *rq, enum uclamp_id clamp_id, unsigned int clamp_value) at ./core.c:1546>:
+                    uclamp_rq_set()
+                uclamp_rq_get()
+                uclamp_rq_set()
+        psi_enqueue()
+        sched_info_enqueue()
+        sched_core_enabled()
+        sched_core_enqueue() <inline void sched_core_enqueue (struct rq *rq, struct task_struct *p) at ./core.c:526>
+    set_next_task()
+    sched_class_above()
+    resched_curr() <void resched_curr (struct rq *rq) at ./core.c:1154>:
+sched_core_dequeue() <void sched_core_dequeue (struct rq *rq, struct task_struct *p, int flags) at ./core.c:315>:
+    sched_core_enqueued()
+    rb_erase()
+    RB_CLEAR_NODE()
+    resched_curr() <void resched_curr (struct rq *rq) at ./core.c:1154>:
+sched_core_enqueue() <void sched_core_enqueue (struct rq *rq, struct task_struct *p) at ./core.c:302>:
+    rb_add()
+    rb_sched_core_less() <inline bool rb_sched_core_less (struct rb_node *a, const struct rb_node *b) at ./core.c:283>:
+sched_core_get() <void sched_core_get (void) at ./core.c:487>:
+    atomic_inc_not_zero()
+    mutex_lock()
+    atomic_read()
+    smp_mb__before_atomic()
+    atomic_inc()
+    mutex_unlock()
+sched_core_put() <void sched_core_put (void) at ./core.c:509>:
+    atomic_add_unless()
+    schedule_work()
+sched_core_sysctl_init() <int __init sched_core_sysctl_init (void) at ./core.c:4616>:
+    register_sysctl_init()
+sched_cpu_activate() <int sched_cpu_activate (unsigned int cpu) at ./core.c:8346>:
+    cpu_rq()
+    balance_push_set() <inline void balance_push_set (int cpu, bool on) at ./core.c:8220>:
+        cpu_rq()
+        rq_lock_irqsave()
+        WARN_ON_ONCE()
+        rq_unlock_irqrestore()
+    sched_smt_present_inc() <inline void sched_smt_present_inc (int cpu) at ./core.c:8330>:
+        cpumask_weight()
+        cpu_smt_mask()
+        static_branch_inc_cpuslocked()
+    set_cpu_active()
+    sched_update_numa()
+    sched_domains_numa_masks_set()
+    cpuset_cpu_active() <void cpuset_cpu_active (void) at ./core.c:8298>:
+        cpuset_reset_sched_domains()
+        cpuset_force_rebuild()
+        cpuset_update_active_cpus()
+    scx_rq_activate()
+    sched_set_rq_online() <inline void sched_set_rq_online (struct rq *rq, int cpu) at ./core.c:8261>:
+        rq_lock_irqsave()
+        BUG_ON()
+        cpumask_test_cpu()
+        set_rq_online() <void set_rq_online (struct rq *rq) at ./core.c:8230>:
+            cpumask_set_cpu()
+            for_each_class()
+        rq_unlock_irqrestore()
+sched_cpu_deactivate() <int sched_cpu_deactivate (unsigned int cpu) at ./core.c:8384>:
+    cpu_rq()
+    dl_bw_deactivate()
+    nohz_balance_exit_idle()
+    set_cpu_active()
+    balance_push_set() <inline void balance_push_set (int cpu, bool on) at ./core.c:8220>:
+        cpu_rq()
+        rq_lock_irqsave()
+        WARN_ON_ONCE()
+        rq_unlock_irqrestore()
+    synchronize_rcu()
+    sched_set_rq_offline() <inline void sched_set_rq_offline (struct rq *rq, int cpu) at ./core.c:8273>:
+        rq_lock_irqsave()
+        BUG_ON()
+        cpumask_test_cpu()
+        set_rq_offline() <void set_rq_offline (struct rq *rq) at ./core.c:8245>:
+            update_rq_clock() <void update_rq_clock (struct rq *rq) at ./core.c:845>:
+                lockdep_assert_rq_held()
+                sched_feat()
+                WARN_ON_ONCE()
+                sched_clock_cpu()
+                cpu_of()
+                scx_rq_clock_update()
+                update_rq_clock_task() <void update_rq_clock_task (struct rq *rq, s64 delta) at ./core.c:786>:
+                    irqtime_enabled()
+                    irq_time_read()
+                    cpu_of()
+                    delayacct_irq()
+                    static_key_false()
+                    paravirt_steal_clock()
+                    unlikely()
+                    sched_feat()
+                    update_irq_load_avg()
+                    update_rq_clock_pelt()
+            for_each_class()
+            cpumask_clear_cpu()
+        rq_unlock_irqrestore()
+    scx_rq_deactivate()
+    sched_smt_present_dec() <inline void sched_smt_present_dec (int cpu) at ./core.c:8338>:
+        cpumask_weight()
+        cpu_smt_mask()
+        static_branch_dec_cpuslocked()
+    sched_core_cpu_deactivate() <inline void sched_core_cpu_deactivate (unsigned int cpu) at ./core.c:6461>:
+        cpu_smt_mask()
+        cpu_rq()
+        guard()
+        cpumask_weight()
+        WARN_ON_ONCE()
+        for_each_cpu()
+    sched_update_numa()
+    cpuset_cpu_inactive() <void cpuset_cpu_inactive (unsigned int cpu) at ./core.c:8320>:
+        cpuset_update_active_cpus()
+        cpuset_reset_sched_domains()
+    sched_domains_numa_masks_clear()
+sched_cpu_dying() <int sched_cpu_dying (unsigned int cpu) at ./core.c:8516>:
+    cpu_rq()
+    sched_tick_stop() <inline void sched_tick_stop (int cpu) at ./core.c:5735>:
+        housekeeping_cpu()
+        WARN_ON_ONCE()
+        per_cpu_ptr()
+        atomic_xchg()
+    rq_lock_irqsave()
+    update_rq_clock() <void update_rq_clock (struct rq *rq) at ./core.c:845>:
+        lockdep_assert_rq_held()
+        sched_feat()
+        WARN_ON_ONCE()
+        sched_clock_cpu()
+        cpu_of()
+        scx_rq_clock_update()
+        update_rq_clock_task() <void update_rq_clock_task (struct rq *rq, s64 delta) at ./core.c:786>:
+            irqtime_enabled()
+            irq_time_read()
+            cpu_of()
+            delayacct_irq()
+            static_key_false()
+            paravirt_steal_clock()
+            unlikely()
+            sched_feat()
+            update_irq_load_avg()
+            update_rq_clock_pelt()
+    rq_has_pinned_tasks() <inline bool rq_has_pinned_tasks (struct rq *rq) at ./core.c:2394>
+    WARN()
+    dump_rq_tasks() <void dump_rq_tasks (struct rq *rq, const char *loglvl) at ./core.c:8497>:
+        cpu_of()
+        lockdep_assert_rq_held()
+        printk()
+        for_each_process_thread()
+        task_cpu()
+        task_on_rq_queued()
+    dl_server_stop()
+    rq_unlock_irqrestore()
+    calc_load_migrate() <void calc_load_migrate (struct rq *rq) at ./core.c:8489>:
+        calc_load_fold_active()
+        atomic_long_add()
+    update_max_interval()
+    hrtick_clear() <inline void hrtick_clear (struct rq *rq) at ./core.c:950>:
+        hrtimer_active()
+        hrtimer_cancel()
+    sched_core_cpu_dying() <inline void sched_core_cpu_dying (unsigned int cpu) at ./core.c:6462>:
+        cpu_rq()
+sched_cpu_wait_empty() <int sched_cpu_wait_empty (unsigned int cpu) at ./core.c:8473>:
+    balance_hotplug_wait() <inline void balance_hotplug_wait (void) at ./core.c:8224>:
+        this_rq()
+        rcuwait_wait_event()
+        rq_has_pinned_tasks() <inline bool rq_has_pinned_tasks (struct rq *rq) at ./core.c:2394>
+    sched_force_init_mm() <void sched_force_init_mm (void) at ./core.c:8067>:
+        mmgrab_lazy_tlb()
+        local_irq_disable()
+        switch_mm_irqs_off()
+        local_irq_enable()
+        finish_arch_post_lock_switch()
+        mmdrop_lazy_tlb()
+sched_destroy_group() <void sched_destroy_group (struct task_group *tg) at ./core.c:9111>:
+    call_rcu()
+    sched_unregister_group_rcu() <void sched_unregister_group_rcu (struct rcu_head *rhp) at ./core.c:9105>:
+        sched_unregister_group() <void sched_unregister_group (struct task_group *tg) at ./core.c:9050>:
+            unregister_fair_sched_group()
+            unregister_rt_sched_group()
+            call_rcu()
+            sched_free_group_rcu() <void sched_free_group_rcu (struct rcu_head *rcu) at ./core.c:9045>:
+                sched_free_group() <void sched_free_group (struct task_group *tg) at ./core.c:9037>:
+                    free_fair_sched_group()
+                    free_rt_sched_group()
+                    autogroup_free()
+                    kmem_cache_free()
+                container_of()
+                task_group()
+        container_of()
+        task_group()
+sched_exec() <void sched_exec (void) at ./core.c:5411>:
+    scoped_guard()
+    task_cpu()
+    smp_processor_id()
+    unlikely()
+    cpu_active()
+    stop_one_cpu()
+    migration_cpu_stop() <int migration_cpu_stop (void *data) at ./core.c:2513> (R):
+        this_rq()
+        local_irq_save()
+        flush_smp_call_function_queue()
+        context_unsafe_alias()
+        raw_spin_lock()
+        rq_lock()
+        WARN_ON_ONCE()
+        task_rq()
+        is_migration_disabled()
+        cpumask_test_cpu()
+        task_cpu()
+        task_on_rq_queued()
+        update_rq_clock() <void update_rq_clock (struct rq *rq) at ./core.c:845>:
+            lockdep_assert_rq_held()
+            sched_feat()
+            WARN_ON_ONCE()
+            sched_clock_cpu()
+            cpu_of()
+            scx_rq_clock_update()
+            update_rq_clock_task() <void update_rq_clock_task (struct rq *rq, s64 delta) at ./core.c:786>:
+                irqtime_enabled()
+                irq_time_read()
+                cpu_of()
+                delayacct_irq()
+                static_key_false()
+                paravirt_steal_clock()
+                unlikely()
+                sched_feat()
+                update_irq_load_avg()
+                update_rq_clock_pelt()
+        preempt_disable()
+        rq_unlock()
+        raw_spin_unlock_irqrestore()
+        stop_one_cpu_nowait()
+        migration_cpu_stop() <int migration_cpu_stop (void *data) at ./core.c:2513> (recursive: see 1618)
+        preempt_enable()
+        complete_all()
+sched_fork() <int sched_fork (u64 clone_flags, struct task_struct *p) at ./core.c:4627>:
+    uclamp_fork() <inline void uclamp_fork (struct task_struct *p) at ./core.c:2066>:
+        for_each_clamp_id()
+        likely()
+        uclamp_se_set()
+        uclamp_none()
+    unlikely()
+    task_has_dl_policy()
+    task_has_rt_policy()
+    NICE_TO_PRIO()
+    PRIO_TO_NICE()
+    set_load_weight() <void set_load_weight (struct task_struct *p, bool update_load) at ./core.c:1447>:
+        task_has_idle_policy()
+        scale_load()
+        task_rq()
+    dl_prio()
+    scx_pre_fork()
+    rt_prio()
+    task_should_scx()
+    init_entity_runnable_average()
+    likely()
+    sched_info_on()
+    memset()
+    init_task_preempt_count()
+    plist_node_init()
+    RB_CLEAR_NODE()
+sched_init() <void __init sched_init (void) at ./core.c:8599>:
+    BUG_ON()
+    sched_class_above()
+    wait_bit_init()
+    kzalloc()
+    init_cfs_bandwidth()
+    scx_tg_init()
+    init_defrootdomain()
+    init_rt_bandwidth()
+    global_rt_period()
+    global_rt_runtime()
+    KMEM_CACHE()
+    task_group()
+    list_add()
+    INIT_LIST_HEAD()
+    autogroup_init()
+    for_each_possible_cpu()
+    cpu_rq()
+    raw_spin_lock_init()
+    init_cfs_rq()
+    init_rt_rq()
+    init_dl_rq()
+    init_tg_cfs_entry()
+    init_tg_rt_entry()
+    rq_attach_root()
+    atomic_set()
+    INIT_CSD()
+    nohz_csd_func() <void nohz_csd_func (void *info) at ./core.c:1313>:
+        cpu_of()
+        atomic_fetch_andnot()
+        nohz_flags()
+        WARN_ON()
+        idle_cpu()
+    rcuwait_init()
+    hrtick_rq_init() <inline void hrtick_rq_init (struct rq *rq) at ./core.c:954>:
+        INIT_CSD()
+        hrtimer_setup()
+        hrtick() <enum hrtimer_restart hrtick (struct hrtimer *timer) at ./core.c:885>:
+            container_of()
+            WARN_ON_ONCE()
+            cpu_of()
+            smp_processor_id()
+            rq_lock()
+            update_rq_clock() <void update_rq_clock (struct rq *rq) at ./core.c:845>:
+                lockdep_assert_rq_held()
+                sched_feat()
+                WARN_ON_ONCE()
+                sched_clock_cpu()
+                cpu_of()
+                scx_rq_clock_update()
+                update_rq_clock_task() <void update_rq_clock_task (struct rq *rq, s64 delta) at ./core.c:786>:
+                    irqtime_enabled()
+                    irq_time_read()
+                    cpu_of()
+                    delayacct_irq()
+                    static_key_false()
+                    paravirt_steal_clock()
+                    unlikely()
+                    sched_feat()
+                    update_irq_load_avg()
+                    update_rq_clock_pelt()
+            rq_unlock()
+    fair_server_init()
+    ext_server_init()
+    zalloc_cpumask_var_node()
+    cpu_to_node()
+    set_load_weight() <void set_load_weight (struct task_struct *p, bool update_load) at ./core.c:1447>:
+        task_has_idle_policy()
+        scale_load()
+        task_rq()
+    mmgrab_lazy_tlb()
+    enter_lazy_tlb()
+    WARN_ON()
+    set_kthread_struct()
+    init_idle() <void __init init_idle (struct task_struct *idle, int cpu) at ./core.c:7932>:
+        cpu_rq()
+        raw_spin_lock_irqsave()
+        raw_spin_rq_lock()
+        sched_clock()
+        kthread_set_per_cpu()
+        set_cpus_allowed_common() <void set_cpus_allowed_common (struct task_struct *p, struct affinity_context *ctx) at ./core.c:2676>:
+            cpumask_copy()
+            cpumask_weight()
+            mm_update_cpus_allowed() <inline void mm_update_cpus_allowed (struct mm_struct *mm, const struct cpumask *affmsk) at ./core.c:10863>:
+                READ_ONCE()
+                guard()
+                mm_cpus_allowed()
+                cpumask_weighted_or()
+                WRITE_ONCE()
+                cid_on_cpu()
+                mm_cid_calc_pcpu_thrs() <inline unsigned int mm_cid_calc_pcpu_thrs (struct mm_mm_cid *mc) at ./core.c:10474>:
+                    min()
+                    max()
+                    num_possible_cpus()
+                irq_work_queue()
+            swap()
+        rcu_read_lock()
+        rcu_read_unlock()
+        rq_set_donor()
+        rcu_assign_pointer()
+        raw_spin_rq_unlock() <void raw_spin_rq_unlock (struct rq *rq) at ./core.c:690>:
+            raw_spin_unlock()
+            rq_lockp()
+        raw_spin_unlock_irqrestore()
+        init_idle_preempt_count()
+        ftrace_graph_init_idle_task()
+        vtime_init_idle()
+        sprintf()
+    smp_processor_id()
+    idle_thread_set_boot_cpu()
+    balance_push_set() <inline void balance_push_set (int cpu, bool on) at ./core.c:8220>:
+        cpu_rq()
+        rq_lock_irqsave()
+        WARN_ON_ONCE()
+        rq_unlock_irqrestore()
+    init_sched_fair_class()
+    init_sched_ext_class()
+    psi_init()
+    init_uclamp() <inline void init_uclamp (void) at ./core.c:2068>:
+        for_each_possible_cpu()
+        init_uclamp_rq() <void __init init_uclamp_rq (struct rq *rq) at ./core.c:2024>:
+            for_each_clamp_id()
+        cpu_rq()
+        for_each_clamp_id()
+        uclamp_se_set()
+        uclamp_none()
+    preempt_dynamic_init() <inline void preempt_dynamic_init (void) at ./core.c:7750>:
+        IS_ENABLED()
+        sched_dynamic_update() <void sched_dynamic_update (int mode) at ./core.c:7695>:
+            mutex_lock()
+            mutex_unlock()
+        WARN_ON_ONCE()
+        pr_info()
+sched_init_smp() <void __init sched_init_smp (void) at ./core.c:8544>:
+    sched_init_numa()
+    prandom_init_once()
+    sched_domains_mutex_lock()
+    sched_init_domains()
+    sched_domains_mutex_unlock()
+    set_cpus_allowed_ptr() <int set_cpus_allowed_ptr (struct task_struct *p, const struct cpumask *new_mask) at ./core.c:3117>:
+    housekeeping_cpumask()
+    BUG()
+    sched_init_granularity()
+    init_sched_rt_class()
+    init_sched_dl_class()
+    sched_init_dl_servers()
+sched_mm_cid_after_execve() <void sched_mm_cid_after_execve (struct task_struct *t) at ./core.c:10805>:
+    sched_mm_cid_fork() <inline void sched_mm_cid_fork (struct task_struct *t) at ./core.c:10864>:
+        WARN_ON_ONCE()
+        guard()
+        scoped_guard()
+        this_cpu_ptr()
+        sched_mm_cid_add_user() <bool sched_mm_cid_add_user (struct task_struct *t, struct mm_struct *mm) at ./core.c:10652>:
+            lockdep_assert_held()
+            hlist_add_head()
+            mm_update_max_cids() <bool mm_update_max_cids (struct mm_struct *mm) at ./core.c:10483>:
+                cid_on_cpu()
+                lockdep_assert_held()
+                mm_cid_calc_pcpu_thrs() <inline unsigned int mm_cid_calc_pcpu_thrs (struct mm_mm_cid *mc) at ./core.c:10474>:
+                    min()
+                    max()
+                    num_possible_cpus()
+                WRITE_ONCE()
+                smp_mb()
+        mm_get_cid()
+        cid_on_cpu()
+        mm_cid_transit_to_task() <inline void mm_cid_transit_to_task (struct task_struct *t, struct mm_cid_pcpu *pcp) at ./core.c:10569>:
+            cid_on_cpu()
+            cpu_cid_to_cid()
+            cid_to_transit_cid()
+        mm_cid_transit_to_cpu() <inline void mm_cid_transit_to_cpu (struct task_struct *t, struct mm_cid_pcpu *pcp) at ./core.c:10615>:
+            cid_on_task()
+            cid_to_transit_cid()
+        mm_cid_fixup_tasks_to_cpus() <void mm_cid_fixup_tasks_to_cpus (void) at ./core.c:10636>:
+            lockdep_assert_held()
+            hlist_for_each_entry()
+            mm_cid_fixup_task_to_cpu() <void mm_cid_fixup_task_to_cpu (struct task_struct *t, struct mm_struct *mm) at ./core.c:10623>:
+                guard()
+                task_rq_lock()
+                cid_on_task()
+                task_rq()
+                mm_cid_transit_to_cpu() <inline void mm_cid_transit_to_cpu (struct task_struct *t, struct mm_cid_pcpu *pcp) at ./core.c:10615>:
+                    cid_on_task()
+                    cid_to_transit_cid()
+                per_cpu_ptr()
+                task_cpu()
+                mm_unset_cid_on_task()
+            mm_cid_complete_transit() <inline void mm_cid_complete_transit (struct mm_struct *mm, unsigned int mode) at ./core.c:10559>:
+                smp_mb()
+                WRITE_ONCE()
+        mm_cid_fixup_cpus_to_tasks() <void mm_cid_fixup_cpus_to_tasks (struct mm_struct *mm) at ./core.c:10579>:
+            for_each_possible_cpu()
+            per_cpu_ptr()
+            cpu_rq()
+            guard()
+            cid_on_cpu()
+            mm_cid_transit_to_task() <inline void mm_cid_transit_to_task (struct task_struct *t, struct mm_cid_pcpu *pcp) at ./core.c:10569>:
+                cid_on_cpu()
+                cpu_cid_to_cid()
+                cid_to_transit_cid()
+            mm_drop_cid_on_cpu()
+            cid_in_transit()
+            cid_to_transit_cid()
+            mm_cid_complete_transit() <inline void mm_cid_complete_transit (struct mm_struct *mm, unsigned int mode) at ./core.c:10559>:
+                smp_mb()
+                WRITE_ONCE()
+sched_mm_cid_before_execve() <void sched_mm_cid_before_execve (struct task_struct *t) at ./core.c:10799>:
+    sched_mm_cid_exit() <void sched_mm_cid_exit (struct task_struct *t) at ./core.c:10748>:
+        scoped_guard()
+        likely()
+        mm_drop_cid_on_cpu()
+        this_cpu_ptr()
+        mm_cid_fixup_cpus_to_tasks() <void mm_cid_fixup_cpus_to_tasks (struct mm_struct *mm) at ./core.c:10579>:
+            for_each_possible_cpu()
+            per_cpu_ptr()
+            cpu_rq()
+            guard()
+            cid_on_cpu()
+            mm_cid_transit_to_task() <inline void mm_cid_transit_to_task (struct task_struct *t, struct mm_cid_pcpu *pcp) at ./core.c:10569>:
+                cid_on_cpu()
+                cpu_cid_to_cid()
+                cid_to_transit_cid()
+            mm_drop_cid_on_cpu()
+            cid_in_transit()
+            cid_to_transit_cid()
+            mm_cid_complete_transit() <inline void mm_cid_complete_transit (struct mm_struct *mm, unsigned int mode) at ./core.c:10559>:
+                smp_mb()
+                WRITE_ONCE()
+        mm_cid_transit_to_task() <inline void mm_cid_transit_to_task (struct task_struct *t, struct mm_cid_pcpu *pcp) at ./core.c:10569>:
+            cid_on_cpu()
+            cpu_cid_to_cid()
+            cid_to_transit_cid()
+        sched_mm_cid_remove_user() <bool sched_mm_cid_remove_user (struct task_struct *t) at ./core.c:10707>:
+            lockdep_assert_held()
+            cid_from_transit_cid()
+            mm_unset_cid_on_task()
+            hlist_del_init()
+            mm_update_max_cids() <bool mm_update_max_cids (struct mm_struct *mm) at ./core.c:10483>:
+                cid_on_cpu()
+                lockdep_assert_held()
+                mm_cid_calc_pcpu_thrs() <inline unsigned int mm_cid_calc_pcpu_thrs (struct mm_mm_cid *mc) at ./core.c:10474>:
+                    min()
+                    max()
+                    num_possible_cpus()
+                WRITE_ONCE()
+                smp_mb()
+        irq_work_sync()
+        cancel_work_sync()
+sched_post_fork() <void sched_post_fork (struct task_struct *p) at ./core.c:4734>:
+    sched_mm_cid_fork() <inline void sched_mm_cid_fork (struct task_struct *t) at ./core.c:10864>:
+        WARN_ON_ONCE()
+        guard()
+        scoped_guard()
+        this_cpu_ptr()
+        sched_mm_cid_add_user() <bool sched_mm_cid_add_user (struct task_struct *t, struct mm_struct *mm) at ./core.c:10652>:
+            lockdep_assert_held()
+            hlist_add_head()
+            mm_update_max_cids() <bool mm_update_max_cids (struct mm_struct *mm) at ./core.c:10483>:
+                cid_on_cpu()
+                lockdep_assert_held()
+                mm_cid_calc_pcpu_thrs() <inline unsigned int mm_cid_calc_pcpu_thrs (struct mm_mm_cid *mc) at ./core.c:10474>:
+                    min()
+                    max()
+                    num_possible_cpus()
+                WRITE_ONCE()
+                smp_mb()
+        mm_get_cid()
+        cid_on_cpu()
+        mm_cid_transit_to_task() <inline void mm_cid_transit_to_task (struct task_struct *t, struct mm_cid_pcpu *pcp) at ./core.c:10569>:
+            cid_on_cpu()
+            cpu_cid_to_cid()
+            cid_to_transit_cid()
+        mm_cid_transit_to_cpu() <inline void mm_cid_transit_to_cpu (struct task_struct *t, struct mm_cid_pcpu *pcp) at ./core.c:10615>:
+            cid_on_task()
+            cid_to_transit_cid()
+        mm_cid_fixup_tasks_to_cpus() <void mm_cid_fixup_tasks_to_cpus (void) at ./core.c:10636>:
+            lockdep_assert_held()
+            hlist_for_each_entry()
+            mm_cid_fixup_task_to_cpu() <void mm_cid_fixup_task_to_cpu (struct task_struct *t, struct mm_struct *mm) at ./core.c:10623>:
+                guard()
+                task_rq_lock()
+                cid_on_task()
+                task_rq()
+                mm_cid_transit_to_cpu() <inline void mm_cid_transit_to_cpu (struct task_struct *t, struct mm_cid_pcpu *pcp) at ./core.c:10615>:
+                    cid_on_task()
+                    cid_to_transit_cid()
+                per_cpu_ptr()
+                task_cpu()
+                mm_unset_cid_on_task()
+            mm_cid_complete_transit() <inline void mm_cid_complete_transit (struct mm_struct *mm, unsigned int mode) at ./core.c:10559>:
+                smp_mb()
+                WRITE_ONCE()
+        mm_cid_fixup_cpus_to_tasks() <void mm_cid_fixup_cpus_to_tasks (struct mm_struct *mm) at ./core.c:10579>:
+            for_each_possible_cpu()
+            per_cpu_ptr()
+            cpu_rq()
+            guard()
+            cid_on_cpu()
+            mm_cid_transit_to_task() <inline void mm_cid_transit_to_task (struct task_struct *t, struct mm_cid_pcpu *pcp) at ./core.c:10569>:
+                cid_on_cpu()
+                cpu_cid_to_cid()
+                cid_to_transit_cid()
+            mm_drop_cid_on_cpu()
+            cid_in_transit()
+            cid_to_transit_cid()
+            mm_cid_complete_transit() <inline void mm_cid_complete_transit (struct mm_struct *mm, unsigned int mode) at ./core.c:10559>:
+                smp_mb()
+                WRITE_ONCE()
+    uclamp_post_fork() <inline void uclamp_post_fork (struct task_struct *p) at ./core.c:2067>:
+        uclamp_update_util_min_rt_default() <void uclamp_update_util_min_rt_default (struct task_struct *p) at ./core.c:1594>:
+            rt_task()
+            guard()
+            task_rq_lock()
+    scx_post_fork()
+sched_set_stop_task() <void sched_set_stop_task (int cpu, struct task_struct *stop) at ./core.c:3543>:
+    cpu_rq()
+    sched_setscheduler_nocheck()
+    lockdep_set_class()
+sched_setnuma() <void sched_setnuma (struct task_struct *p, int nid) at ./core.c:8049>:
+    guard()
+    task_rq_lock()
+    scoped_guard()
+sched_task_on_rq() <bool sched_task_on_rq (struct task_struct *p) at ./core.c:2071>:
+    task_on_rq_queued()
+sched_tick() <void sched_tick (void) at ./core.c:5546>:
+    smp_processor_id()
+    cpu_rq()
+    housekeeping_cpu()
+    arch_scale_freq_tick()
+    sched_clock_tick()
+    rq_lock()
+    psi_account_irqtime()
+    update_rq_clock() <void update_rq_clock (struct rq *rq) at ./core.c:845>:
+        lockdep_assert_rq_held()
+        sched_feat()
+        WARN_ON_ONCE()
+        sched_clock_cpu()
+        cpu_of()
+        scx_rq_clock_update()
+        update_rq_clock_task() <void update_rq_clock_task (struct rq *rq, s64 delta) at ./core.c:786>:
+            irqtime_enabled()
+            irq_time_read()
+            cpu_of()
+            delayacct_irq()
+            static_key_false()
+            paravirt_steal_clock()
+            unlikely()
+            sched_feat()
+            update_irq_load_avg()
+            update_rq_clock_pelt()
+    arch_scale_hw_pressure()
+    cpu_of()
+    update_hw_load_avg()
+    rq_clock_task()
+    dynamic_preempt_lazy() <__always_inline bool dynamic_preempt_lazy (void) at ./core.c:1166>:
+        static_branch_unlikely()
+        IS_ENABLED()
+    tif_test_bit()
+    resched_curr() <void resched_curr (struct rq *rq) at ./core.c:1154>:
+    sched_feat()
+    cpu_resched_latency() <u64 cpu_resched_latency (struct rq *rq) at ./core.c:5497>:
+        READ_ONCE()
+        rq_clock()
+        need_resched()
+    calc_global_load_tick()
+    sched_core_tick()
+    scx_tick()
+    rq_unlock()
+    resched_latency_warn()
+    perf_event_task_tick()
+    wq_worker_tick()
+    scx_switched_all()
+    idle_cpu()
+    sched_balance_trigger()
+sched_tick_offload_init() <int __init sched_tick_offload_init (void) at ./core.c:5726>:
+    alloc_percpu()
+    BUG_ON()
+sched_ttwu_pending() <void sched_ttwu_pending (void *arg) at ./core.c:3734>:
+    this_rq()
+    rq_lock_irqsave()
+    update_rq_clock() <void update_rq_clock (struct rq *rq) at ./core.c:845>:
+        lockdep_assert_rq_held()
+        sched_feat()
+        WARN_ON_ONCE()
+        sched_clock_cpu()
+        cpu_of()
+        scx_rq_clock_update()
+        update_rq_clock_task() <void update_rq_clock_task (struct rq *rq, s64 delta) at ./core.c:786>:
+            irqtime_enabled()
+            irq_time_read()
+            cpu_of()
+            delayacct_irq()
+            static_key_false()
+            paravirt_steal_clock()
+            unlikely()
+            sched_feat()
+            update_irq_load_avg()
+            update_rq_clock_pelt()
+    llist_for_each_entry_safe()
+    WARN_ON_ONCE()
+    smp_cond_load_acquire()
+    task_cpu()
+    cpu_of()
+    set_task_cpu() <void set_task_cpu (struct task_struct *p, unsigned int new_cpu) at ./core.c:3243>:
+        READ_ONCE()
+        WARN_ON_ONCE()
+        task_on_rq_migrating()
+        lockdep_is_held()
+        task_rq()
+        cpu_online()
+        is_migration_disabled()
+        trace_sched_migrate_task()
+        task_cpu()
+        perf_event_task_migrate()
+    ttwu_do_activate() <void ttwu_do_activate (struct rq *rq, struct task_struct *p, int wake_flags, struct rq_flags *rf) at ./core.c:3647>:
+        lockdep_assert_rq_held()
+        delayacct_blkio_end()
+        atomic_dec()
+        task_rq()
+        activate_task() <void activate_task (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2142>:
+            task_on_rq_migrating()
+            enqueue_task() <void enqueue_task (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2095>:
+                update_rq_clock() <void update_rq_clock (struct rq *rq) at ./core.c:845>:
+                    lockdep_assert_rq_held()
+                    sched_feat()
+                    WARN_ON_ONCE()
+                    sched_clock_cpu()
+                    cpu_of()
+                    scx_rq_clock_update()
+                    update_rq_clock_task() <void update_rq_clock_task (struct rq *rq, s64 delta) at ./core.c:786>:
+                        irqtime_enabled()
+                        irq_time_read()
+                        cpu_of()
+                        delayacct_irq()
+                        static_key_false()
+                        paravirt_steal_clock()
+                        unlikely()
+                        sched_feat()
+                        update_irq_load_avg()
+                        update_rq_clock_pelt()
+                uclamp_rq_inc() <inline void uclamp_rq_inc (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2064>:
+                    uclamp_is_used()
+                    unlikely()
+                    for_each_clamp_id()
+                    uclamp_rq_inc_id() <inline void uclamp_rq_inc_id (struct rq *rq, struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1675>:
+                        lockdep_assert_rq_held()
+                        uclamp_eff_get() <inline struct uclamp_se uclamp_eff_get (struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1640>:
+                            uclamp_tg_restrict() <inline struct uclamp_se uclamp_tg_restrict (struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1605>:
+                                task_group_is_autogroup()
+                                task_group()
+                                clamp()
+                                uclamp_se_set()
+                            unlikely()
+                        uclamp_idle_reset() <inline void uclamp_idle_reset (struct rq *rq, enum uclamp_id clamp_id, unsigned int clamp_value) at ./core.c:1546>:
+                            uclamp_rq_set()
+                        uclamp_rq_get()
+                        uclamp_rq_set()
+                psi_enqueue()
+                sched_info_enqueue()
+                sched_core_enabled()
+                sched_core_enqueue() <inline void sched_core_enqueue (struct rq *rq, struct task_struct *p) at ./core.c:526>
+            WRITE_ONCE()
+            ASSERT_EXCLUSIVE_WRITER()
+        wakeup_preempt() <void wakeup_preempt (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2185>:
+            sched_class_above()
+            resched_curr() <void resched_curr (struct rq *rq) at ./core.c:1154>:
+            task_on_rq_queued()
+            test_tsk_need_resched()
+            rq_clock_skip_update()
+        ttwu_do_wakeup() <inline void ttwu_do_wakeup (struct task_struct *p) at ./core.c:3628>:
+            WRITE_ONCE()
+            trace_sched_wakeup()
+        rq_unpin_lock()
+        rq_repin_lock()
+    WRITE_ONCE()
+    rq_unlock_irqrestore()
+schedule_idle() <void __sched schedule_idle (void) at ./core.c:7023>:
+    WARN_ON_ONCE()
+    need_resched()
+schedule_preempt_disabled() <void __sched schedule_preempt_disabled (void) at ./core.c:7062>:
+    sched_preempt_enable_no_resched()
+    schedule() <asmlinkage __visible void __sched schedule (void) at ./core.c:6998>:
+        lockdep_assert()
+        task_is_running()
+        sched_submit_work() <inline void sched_submit_work (struct task_struct *tsk) at ./core.c:6940>:
+            lock_map_acquire_try()
+            wq_worker_sleeping()
+            io_wq_worker_sleeping()
+            WARN_ON_ONCE()
+            blk_flush_plug()
+            lock_map_release()
+        sched_update_worker() <void sched_update_worker (struct task_struct *tsk) at ./core.c:6977>:
+            blk_plug_invalidate_ts()
+            wq_worker_running()
+            io_wq_worker_running()
+    preempt_disable()
+schedule_rtlock() <void __sched notrace schedule_rtlock (void) at ./core.c:7070>:
+schedule_user() <asmlinkage __visible void __sched schedule_user (void) at ./core.c:7039>:
+    exception_enter()
+    schedule() <asmlinkage __visible void __sched schedule (void) at ./core.c:6998>:
+        lockdep_assert()
+        task_is_running()
+        sched_submit_work() <inline void sched_submit_work (struct task_struct *tsk) at ./core.c:6940>:
+            lock_map_acquire_try()
+            wq_worker_sleeping()
+            io_wq_worker_sleeping()
+            WARN_ON_ONCE()
+            blk_flush_plug()
+            lock_map_release()
+        sched_update_worker() <void sched_update_worker (struct task_struct *tsk) at ./core.c:6977>:
+            blk_plug_invalidate_ts()
+            wq_worker_running()
+            io_wq_worker_running()
+    exception_exit()
+set_numabalancing_state() <void set_numabalancing_state (bool enabled) at ./core.c:4456>:
+setup_preempt_mode() <int __init setup_preempt_mode (char *str) at ./core.c:7702>:
+    sched_dynamic_mode() <int sched_dynamic_mode (const char *str) at ./core.c:7597>:
+        strcmp()
+    pr_warn()
+    sched_dynamic_update() <void sched_dynamic_update (int mode) at ./core.c:7695>:
+        mutex_lock()
+        mutex_unlock()
+setup_proxy_exec() <int __init setup_proxy_exec (char *str) at ./core.c:150>:
+    kstrtobool()
+    pr_warn()
+    pr_info()
+    static_branch_enable()
+    static_branch_disable()
+setup_resched_latency_warn_ms() <int __init setup_resched_latency_warn_ms (char *str) at ./core.c:5528>:
+    kstrtol()
+    pr_warn()
+setup_rt_group_sched() <int __init setup_rt_group_sched (char *str) at ./core.c:10000>:
+    kstrtol()
+    pr_warn()
+    static_branch_enable()
+    static_branch_disable()
+setup_schedstats() <int __init setup_schedstats (char *str) at ./core.c:4524>:
+    strcmp()
+    set_schedstats() <void set_schedstats (bool enabled) at ./core.c:4508>:
+        static_branch_enable()
+        static_branch_disable()
+    pr_warn()
+show_state_filter() <void show_state_filter (unsigned int state_filter) at ./core.c:7894>:
+    rcu_read_lock()
+    for_each_process_thread()
+    touch_nmi_watchdog()
+    touch_all_softlockup_watchdogs()
+    state_filter_match() <inline bool state_filter_match (unsigned long state_filter, struct task_struct *p) at ./core.c:7871>:
+        READ_ONCE()
+    sched_show_task() <void sched_show_task (struct task_struct *p) at ./core.c:7840>:
+        try_get_task_stack()
+        pr_info()
+        task_state_to_char()
+        task_is_running()
+        pr_cont()
+        stack_not_used()
+        rcu_read_lock()
+        pid_alive()
+        task_pid_nr()
+        rcu_dereference()
+        rcu_read_unlock()
+        task_tgid_nr()
+        read_task_thread_flags()
+        print_worker_info()
+        print_stop_info()
+        print_scx_info()
+        show_stack()
+        put_task_stack()
+    sysrq_sched_debug_show()
+    rcu_read_unlock()
+    debug_show_all_locks()
+single_task_running() <bool single_task_running (void) at ./core.c:5333>:
+    raw_rq()
+splice_balance_callbacks() <struct balance_callback *splice_balance_callbacks (struct rq *rq) at ./core.c:4976>:
+steal_cookie_task() <bool steal_cookie_task (int cpu, struct sched_domain *sd) at ./core.c:6301>:
+    for_each_cpu_wrap()
+    sched_domain_span()
+    need_resched()
+    try_steal_cookie() <bool try_steal_cookie (int this, int that) at ./core.c:6249>:
+        cpu_rq()
+        guard()
+        double_rq_lock() <void double_rq_lock (struct rq *rq1, struct rq *rq2) at ./core.c:698>:
+            lockdep_assert_irqs_disabled()
+            rq_order_less()
+            swap()
+            raw_spin_rq_lock()
+            raw_spin_rq_lock_nested() <void raw_spin_rq_lock_nested (struct rq *rq, int subclass) at ./core.c:639>:
+                preempt_disable()
+                sched_core_disabled()
+                raw_spin_lock_nested()
+                preempt_enable_no_resched()
+                likely()
+                raw_spin_unlock()
+            double_rq_clock_clear_update()
+        sched_core_find() <struct task_struct *sched_core_find (struct rq *rq, unsigned long cookie) at ./core.c:368>:
+            rb_find_first()
+            rb_sched_core_cmp() <inline int rb_sched_core_cmp (const void *key, const struct rb_node *node) at ./core.c:288>:
+            sched_task_is_throttled() <int sched_task_is_throttled (struct task_struct *p, int cpu) at ./core.c:337>
+            sched_core_next() <struct task_struct *sched_core_next (struct task_struct *p, unsigned long cookie) at ./core.c:345>:
+                task_cpu()
+                rb_next()
+                sched_task_is_throttled() <int sched_task_is_throttled (struct task_struct *p, int cpu) at ./core.c:337>
+        is_cpu_allowed() <inline bool is_cpu_allowed (struct task_struct *p, int cpu) at ./core.c:2403>:
+            task_allowed_on_cpu()
+            is_migration_disabled()
+            cpu_online()
+            cpu_active()
+            kthread_is_per_cpu()
+            cpu_dying()
+        sched_task_is_throttled() <int sched_task_is_throttled (struct task_struct *p, int cpu) at ./core.c:337>
+        move_queued_task_locked()
+        resched_curr() <void resched_curr (struct rq *rq) at ./core.c:1154>:
+        sched_core_next() <struct task_struct *sched_core_next (struct task_struct *p, unsigned long cookie) at ./core.c:345>:
+            task_cpu()
+            rb_next()
+            sched_task_is_throttled() <int sched_task_is_throttled (struct task_struct *p, int cpu) at ./core.c:337>
+sysctl_numa_balancing() <int sysctl_numa_balancing (const struct ctl_table *table, int write, void *buffer, size_t *lenp, loff_t *ppos) at ./core.c:4477>:
+    capable()
+    proc_dointvec_minmax()
+    reset_memory_tiering() <void reset_memory_tiering (void) at ./core.c:4466>:
+        for_each_online_pgdat()
+        node_page_state()
+        jiffies_to_msecs()
+sysctl_sched_uclamp_handler() <int sysctl_sched_uclamp_handler (const struct ctl_table *table, int write, void *buffer, size_t *lenp, loff_t *ppos) at ./core.c:1936>:
+    guard()
+    proc_dointvec()
+    uclamp_se_set()
+    sched_uclamp_enable()
+    uclamp_update_root_tg() <void uclamp_update_root_tg (void) at ./core.c:1907>:
+        uclamp_se_set()
+        guard()
+        cpu_util_update_eff() <void cpu_util_update_eff (struct cgroup_subsys_state *css) at ./core.c:9295>:
+            lockdep_assert_held()
+            WARN_ON_ONCE()
+            rcu_read_lock_held()
+            css_for_each_descendant_pre()
+            css_tg()
+            for_each_clamp_id()
+            min()
+            uclamp_bucket_id()
+            css_rightmost_descendant()
+            uclamp_update_active_tasks() <inline void uclamp_update_active_tasks (struct cgroup_subsys_state *css) at ./core.c:1878>:
+                css_task_iter_start()
+                css_task_iter_next()
+                uclamp_update_active() <inline void uclamp_update_active (struct task_struct *p) at ./core.c:1848>:
+                    task_rq_lock()
+                    for_each_clamp_id()
+                    uclamp_rq_reinc_id() <inline void uclamp_rq_reinc_id (struct rq *rq, struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1830>:
+                        uclamp_rq_dec_id() <inline void uclamp_rq_dec_id (struct rq *rq, struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1713>:
+                            lockdep_assert_rq_held()
+                            unlikely()
+                            WARN_ON_ONCE()
+                            likely()
+                            uclamp_rq_get()
+                            uclamp_rq_max_value() <inline unsigned int uclamp_rq_max_value (struct rq *rq, enum uclamp_id clamp_id, unsigned int clamp_value) at ./core.c:1557>:
+                                uclamp_idle_value() <inline unsigned int uclamp_idle_value (struct rq *rq, enum uclamp_id clamp_id, unsigned int clamp_value) at ./core.c:1530>:
+                                    uclamp_none()
+                            uclamp_rq_set()
+                        uclamp_rq_inc_id() <inline void uclamp_rq_inc_id (struct rq *rq, struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1675>:
+                            lockdep_assert_rq_held()
+                            uclamp_eff_get() <inline struct uclamp_se uclamp_eff_get (struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1640>:
+                                uclamp_tg_restrict() <inline struct uclamp_se uclamp_tg_restrict (struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1605>:
+                                    task_group_is_autogroup()
+                                    task_group()
+                                    clamp()
+                                    uclamp_se_set()
+                                unlikely()
+                            uclamp_idle_reset() <inline void uclamp_idle_reset (struct rq *rq, enum uclamp_id clamp_id, unsigned int clamp_value) at ./core.c:1546>:
+                                uclamp_rq_set()
+                            uclamp_rq_get()
+                            uclamp_rq_set()
+                    task_rq_unlock()
+                css_task_iter_end()
+    uclamp_sync_util_min_rt_default() <void uclamp_sync_util_min_rt_default (void) at ./core.c:1910>:
+        read_lock()
+        smp_mb__after_spinlock()
+        read_unlock()
+        guard()
+        for_each_process_thread()
+        uclamp_update_util_min_rt_default() <void uclamp_update_util_min_rt_default (struct task_struct *p) at ./core.c:1594>:
+            rt_task()
+            guard()
+            task_rq_lock()
+sysctl_schedstats() <int sysctl_schedstats (const struct ctl_table *table, int write, void *buffer, size_t *lenp, loff_t *ppos) at ./core.c:4546>:
+    static_branch_likely()
+    capable()
+    proc_dointvec_minmax()
+    set_schedstats() <void set_schedstats (bool enabled) at ./core.c:4508>:
+        static_branch_enable()
+        static_branch_disable()
+task_call_func() <int task_call_func (struct task_struct *p, task_call_f func, void *arg) at ./core.c:4298>:
+    raw_spin_lock_irqsave()
+    raw_spin_unlock_irqrestore()
+task_can_attach() <int task_can_attach (struct task_struct *p) at ./core.c:8005>:
+task_sched_runtime() <unsigned long long task_sched_runtime (struct task_struct *p) at ./core.c:5458>:
+    task_on_rq_queued()
+    task_rq_lock()
+    task_current_donor()
+    prefetch_curr_exec_start() <inline void prefetch_curr_exec_start (struct task_struct *p) at ./core.c:5442>:
+        task_rq()
+        prefetch()
+    update_rq_clock() <void update_rq_clock (struct rq *rq) at ./core.c:845>:
+        lockdep_assert_rq_held()
+        sched_feat()
+        WARN_ON_ONCE()
+        sched_clock_cpu()
+        cpu_of()
+        scx_rq_clock_update()
+        update_rq_clock_task() <void update_rq_clock_task (struct rq *rq, s64 delta) at ./core.c:786>:
+            irqtime_enabled()
+            irq_time_read()
+            cpu_of()
+            delayacct_irq()
+            static_key_false()
+            paravirt_steal_clock()
+            unlikely()
+            sched_feat()
+            update_irq_load_avg()
+            update_rq_clock_pelt()
+    task_rq_unlock()
+uclamp_eff_value() <unsigned long uclamp_eff_value (struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1652>:
+    uclamp_eff_get() <inline struct uclamp_se uclamp_eff_get (struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1640>:
+        uclamp_tg_restrict() <inline struct uclamp_se uclamp_tg_restrict (struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1605>:
+            task_group_is_autogroup()
+            task_group()
+            clamp()
+            uclamp_se_set()
+        unlikely()
+update_rq_avg_idle() <void update_rq_avg_idle (struct rq *rq) at ./core.c:3634>:
+    rq_clock()
+    max()
+    update_avg()
+wait_task_inactive() <unsigned long wait_task_inactive (struct task_struct *p, unsigned int match_state) at ./core.c:2245>:
+    task_rq()
+    task_on_cpu()
+    task_state_match() <__always_inline int task_state_match (struct task_struct *p, unsigned int state) at ./core.c:2219>:
+        guard()
+    cpu_relax()
+    task_rq_lock()
+    dequeue_task() <inline bool dequeue_task (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2121>:
+        sched_core_enabled()
+        sched_core_dequeue() <inline void sched_core_dequeue (struct rq *rq, struct task_struct *p, int flags) at ./core.c:528>
+        update_rq_clock() <void update_rq_clock (struct rq *rq) at ./core.c:845>:
+            lockdep_assert_rq_held()
+            sched_feat()
+            WARN_ON_ONCE()
+            sched_clock_cpu()
+            cpu_of()
+            scx_rq_clock_update()
+            update_rq_clock_task() <void update_rq_clock_task (struct rq *rq, s64 delta) at ./core.c:786>:
+                irqtime_enabled()
+                irq_time_read()
+                cpu_of()
+                delayacct_irq()
+                static_key_false()
+                paravirt_steal_clock()
+                unlikely()
+                sched_feat()
+                update_irq_load_avg()
+                update_rq_clock_pelt()
+        sched_info_dequeue()
+        psi_dequeue()
+        uclamp_rq_dec() <inline void uclamp_rq_dec (struct rq *rq, struct task_struct *p) at ./core.c:2065>:
+            uclamp_is_used()
+            unlikely()
+            for_each_clamp_id()
+            uclamp_rq_dec_id() <inline void uclamp_rq_dec_id (struct rq *rq, struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1713>:
+                lockdep_assert_rq_held()
+                unlikely()
+                WARN_ON_ONCE()
+                likely()
+                uclamp_rq_get()
+                uclamp_rq_max_value() <inline unsigned int uclamp_rq_max_value (struct rq *rq, enum uclamp_id clamp_id, unsigned int clamp_value) at ./core.c:1557>:
+                    uclamp_idle_value() <inline unsigned int uclamp_idle_value (struct rq *rq, enum uclamp_id clamp_id, unsigned int clamp_value) at ./core.c:1530>:
+                        uclamp_none()
+                uclamp_rq_set()
+    trace_sched_wait_task()
+    task_on_rq_queued()
+    task_rq_unlock()
+    unlikely()
+    set_current_state()
+    schedule_hrtimeout()
+wake_q_add() <void wake_q_add (struct wake_q_head *head, struct task_struct *task) at ./core.c:1054>:
+    get_task_struct()
+wake_q_add_safe() <void wake_q_add_safe (struct wake_q_head *head, struct task_struct *task) at ./core.c:1077>:
+    put_task_struct()
+wake_up_if_idle() <void wake_up_if_idle (int cpu) at ./core.c:3805>:
+    cpu_rq()
+    guard()
+    is_idle_task()
+    rcu_dereference()
+    rq_lock_irqsave()
+    resched_curr() <void resched_curr (struct rq *rq) at ./core.c:1154>:
+wake_up_new_task() <void wake_up_new_task (struct task_struct *p) at ./core.c:4764>:
+    raw_spin_lock_irqsave()
+    WRITE_ONCE()
+    task_cpu()
+    select_task_rq() <inline int select_task_rq (struct task_struct *p, int cpu, int *wake_flags) at ./core.c:3516>:
+        lockdep_assert_held()
+        is_migration_disabled()
+        cpumask_any()
+        unlikely()
+        is_cpu_allowed() <inline bool is_cpu_allowed (struct task_struct *p, int cpu) at ./core.c:2403>:
+            task_allowed_on_cpu()
+            is_migration_disabled()
+            cpu_online()
+            cpu_active()
+            kthread_is_per_cpu()
+            cpu_dying()
+        select_fallback_rq() <int select_fallback_rq (int cpu, struct task_struct *p) at ./core.c:3447>:
+            cpu_to_node()
+            cpumask_of_node()
+            for_each_cpu()
+            is_cpu_allowed() <inline bool is_cpu_allowed (struct task_struct *p, int cpu) at ./core.c:2403>:
+                task_allowed_on_cpu()
+                is_migration_disabled()
+                cpu_online()
+                cpu_active()
+                kthread_is_per_cpu()
+                cpu_dying()
+            cpuset_cpus_allowed_fallback()
+            set_cpus_allowed_force() <void set_cpus_allowed_force (struct task_struct *p, const struct cpumask *new_mask) at ./core.c:2705>:
+                scoped_guard()
+                do_set_cpus_allowed() <void do_set_cpus_allowed (struct task_struct *p, struct affinity_context *ctx) at ./core.c:2695>:
+                    scoped_guard()
+                kfree_rcu()
+            task_cpu_fallback_mask()
+            BUG()
+            printk_ratelimit()
+            printk_deferred()
+            task_pid_nr()
+        task_cpu()
+    update_rq_clock() <void update_rq_clock (struct rq *rq) at ./core.c:845>:
+        lockdep_assert_rq_held()
+        sched_feat()
+        WARN_ON_ONCE()
+        sched_clock_cpu()
+        cpu_of()
+        scx_rq_clock_update()
+        update_rq_clock_task() <void update_rq_clock_task (struct rq *rq, s64 delta) at ./core.c:786>:
+            irqtime_enabled()
+            irq_time_read()
+            cpu_of()
+            delayacct_irq()
+            static_key_false()
+            paravirt_steal_clock()
+            unlikely()
+            sched_feat()
+            update_irq_load_avg()
+            update_rq_clock_pelt()
+    post_init_entity_util_avg()
+    activate_task() <void activate_task (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2142>:
+        task_on_rq_migrating()
+        enqueue_task() <void enqueue_task (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2095>:
+            update_rq_clock() <void update_rq_clock (struct rq *rq) at ./core.c:845>:
+                lockdep_assert_rq_held()
+                sched_feat()
+                WARN_ON_ONCE()
+                sched_clock_cpu()
+                cpu_of()
+                scx_rq_clock_update()
+                update_rq_clock_task() <void update_rq_clock_task (struct rq *rq, s64 delta) at ./core.c:786>:
+                    irqtime_enabled()
+                    irq_time_read()
+                    cpu_of()
+                    delayacct_irq()
+                    static_key_false()
+                    paravirt_steal_clock()
+                    unlikely()
+                    sched_feat()
+                    update_irq_load_avg()
+                    update_rq_clock_pelt()
+            uclamp_rq_inc() <inline void uclamp_rq_inc (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2064>:
+                uclamp_is_used()
+                unlikely()
+                for_each_clamp_id()
+                uclamp_rq_inc_id() <inline void uclamp_rq_inc_id (struct rq *rq, struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1675>:
+                    lockdep_assert_rq_held()
+                    uclamp_eff_get() <inline struct uclamp_se uclamp_eff_get (struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1640>:
+                        uclamp_tg_restrict() <inline struct uclamp_se uclamp_tg_restrict (struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1605>:
+                            task_group_is_autogroup()
+                            task_group()
+                            clamp()
+                            uclamp_se_set()
+                        unlikely()
+                    uclamp_idle_reset() <inline void uclamp_idle_reset (struct rq *rq, enum uclamp_id clamp_id, unsigned int clamp_value) at ./core.c:1546>:
+                        uclamp_rq_set()
+                    uclamp_rq_get()
+                    uclamp_rq_set()
+            psi_enqueue()
+            sched_info_enqueue()
+            sched_core_enabled()
+            sched_core_enqueue() <inline void sched_core_enqueue (struct rq *rq, struct task_struct *p) at ./core.c:526>
+        WRITE_ONCE()
+        ASSERT_EXCLUSIVE_WRITER()
+    trace_sched_wakeup_new()
+    wakeup_preempt() <void wakeup_preempt (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2185>:
+        sched_class_above()
+        resched_curr() <void resched_curr (struct rq *rq) at ./core.c:1154>:
+        task_on_rq_queued()
+        test_tsk_need_resched()
+        rq_clock_skip_update()
+    rq_unpin_lock()
+    rq_repin_lock()
+    task_rq_unlock()
+wake_up_nohz_cpu() <void wake_up_nohz_cpu (int cpu) at ./core.c:1307>:
+    wake_up_full_nohz_cpu() <bool wake_up_full_nohz_cpu (int cpu) at ./core.c:1282>:
+        cpu_is_offline()
+        tick_nohz_full_cpu()
+        smp_processor_id()
+        tick_nohz_tick_stopped()
+        tick_nohz_full_kick_cpu()
+    wake_up_idle_cpu() <void wake_up_idle_cpu (int cpu) at ./core.c:1247>:
+        cpu_rq()
+        smp_processor_id()
+        set_nr_and_not_polling() <inline bool set_nr_and_not_polling (struct thread_info *ti, int tif) at ./core.c:1006>:
+            fetch_or()
+            set_ti_thread_flag()
+        task_thread_info()
+        smp_send_reschedule()
+        trace_sched_wake_idle_without_ipi()
+wake_up_q() <void wake_up_q (struct wake_q_head *head) at ./core.c:1083>:
+    container_of()
+    WRITE_ONCE()
+    wake_up_process() <int wake_up_process (struct task_struct *p) at ./core.c:4372>:
+        try_to_wake_up() <int try_to_wake_up (struct task_struct *p, unsigned int state, int wake_flags) at ./core.c:4092>:
+            guard()
+            WARN_ON_ONCE()
+            ttwu_state_match() <__always_inline bool ttwu_state_match (struct task_struct *p, unsigned int state, int *success) at ./core.c:3941>:
+                IS_ENABLED()
+                WARN_ON_ONCE()
+            trace_sched_waking()
+            ttwu_do_wakeup() <inline void ttwu_do_wakeup (struct task_struct *p) at ./core.c:3628>:
+                WRITE_ONCE()
+                trace_sched_wakeup()
+            scoped_guard()
+            smp_mb__after_spinlock()
+            smp_rmb()
+            READ_ONCE()
+            ttwu_runnable() <int ttwu_runnable (struct task_struct *p, int wake_flags) at ./core.c:3708>:
+                task_on_rq_queued()
+                update_rq_clock() <void update_rq_clock (struct rq *rq) at ./core.c:845>:
+                    lockdep_assert_rq_held()
+                    sched_feat()
+                    WARN_ON_ONCE()
+                    sched_clock_cpu()
+                    cpu_of()
+                    scx_rq_clock_update()
+                    update_rq_clock_task() <void update_rq_clock_task (struct rq *rq, s64 delta) at ./core.c:786>:
+                        irqtime_enabled()
+                        irq_time_read()
+                        cpu_of()
+                        delayacct_irq()
+                        static_key_false()
+                        paravirt_steal_clock()
+                        unlikely()
+                        sched_feat()
+                        update_irq_load_avg()
+                        update_rq_clock_pelt()
+                enqueue_task() <void enqueue_task (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2095>:
+                    update_rq_clock() <void update_rq_clock (struct rq *rq) at ./core.c:845>:
+                        lockdep_assert_rq_held()
+                        sched_feat()
+                        WARN_ON_ONCE()
+                        sched_clock_cpu()
+                        cpu_of()
+                        scx_rq_clock_update()
+                        update_rq_clock_task() <void update_rq_clock_task (struct rq *rq, s64 delta) at ./core.c:786>:
+                            irqtime_enabled()
+                            irq_time_read()
+                            cpu_of()
+                            delayacct_irq()
+                            static_key_false()
+                            paravirt_steal_clock()
+                            unlikely()
+                            sched_feat()
+                            update_irq_load_avg()
+                            update_rq_clock_pelt()
+                    uclamp_rq_inc() <inline void uclamp_rq_inc (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2064>:
+                        uclamp_is_used()
+                        unlikely()
+                        for_each_clamp_id()
+                        uclamp_rq_inc_id() <inline void uclamp_rq_inc_id (struct rq *rq, struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1675>:
+                            lockdep_assert_rq_held()
+                            uclamp_eff_get() <inline struct uclamp_se uclamp_eff_get (struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1640>:
+                                uclamp_tg_restrict() <inline struct uclamp_se uclamp_tg_restrict (struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1605>:
+                                    task_group_is_autogroup()
+                                    task_group()
+                                    clamp()
+                                    uclamp_se_set()
+                                unlikely()
+                            uclamp_idle_reset() <inline void uclamp_idle_reset (struct rq *rq, enum uclamp_id clamp_id, unsigned int clamp_value) at ./core.c:1546>:
+                                uclamp_rq_set()
+                            uclamp_rq_get()
+                            uclamp_rq_set()
+                    psi_enqueue()
+                    sched_info_enqueue()
+                    sched_core_enabled()
+                    sched_core_enqueue() <inline void sched_core_enqueue (struct rq *rq, struct task_struct *p) at ./core.c:526>
+                task_on_cpu()
+                wakeup_preempt() <void wakeup_preempt (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2185>:
+                    sched_class_above()
+                    resched_curr() <void resched_curr (struct rq *rq) at ./core.c:1154>:
+                    task_on_rq_queued()
+                    test_tsk_need_resched()
+                    rq_clock_skip_update()
+                ttwu_do_wakeup() <inline void ttwu_do_wakeup (struct task_struct *p) at ./core.c:3628>:
+                    WRITE_ONCE()
+                    trace_sched_wakeup()
+            smp_acquire__after_ctrl_dep()
+            WRITE_ONCE()
+            smp_load_acquire()
+            ttwu_queue_wakelist() <bool ttwu_queue_wakelist (struct task_struct *p, int cpu, int wake_flags) at ./core.c:3897>:
+                sched_feat()
+                ttwu_queue_cond() <inline bool ttwu_queue_cond (struct task_struct *p, int cpu) at ./core.c:3848>:
+                    scx_allow_ttwu_queue()
+                    cpu_active()
+                    cpumask_test_cpu()
+                    cpus_share_cache() <bool cpus_share_cache (int this_cpu, int that_cpu) at ./core.c:3828>:
+                        per_cpu()
+                    smp_processor_id()
+                    cpu_rq()
+                sched_clock_cpu()
+            task_cpu()
+            smp_cond_load_acquire()
+            select_task_rq() <inline int select_task_rq (struct task_struct *p, int cpu, int *wake_flags) at ./core.c:3516>:
+                lockdep_assert_held()
+                is_migration_disabled()
+                cpumask_any()
+                unlikely()
+                is_cpu_allowed() <inline bool is_cpu_allowed (struct task_struct *p, int cpu) at ./core.c:2403>:
+                    task_allowed_on_cpu()
+                    is_migration_disabled()
+                    cpu_online()
+                    cpu_active()
+                    kthread_is_per_cpu()
+                    cpu_dying()
+                select_fallback_rq() <int select_fallback_rq (int cpu, struct task_struct *p) at ./core.c:3447>:
+                    cpu_to_node()
+                    cpumask_of_node()
+                    for_each_cpu()
+                    is_cpu_allowed() <inline bool is_cpu_allowed (struct task_struct *p, int cpu) at ./core.c:2403>:
+                        task_allowed_on_cpu()
+                        is_migration_disabled()
+                        cpu_online()
+                        cpu_active()
+                        kthread_is_per_cpu()
+                        cpu_dying()
+                    cpuset_cpus_allowed_fallback()
+                    set_cpus_allowed_force() <void set_cpus_allowed_force (struct task_struct *p, const struct cpumask *new_mask) at ./core.c:2705>:
+                        scoped_guard()
+                        do_set_cpus_allowed() <void do_set_cpus_allowed (struct task_struct *p, struct affinity_context *ctx) at ./core.c:2695>:
+                            scoped_guard()
+                        kfree_rcu()
+                    task_cpu_fallback_mask()
+                    BUG()
+                    printk_ratelimit()
+                    printk_deferred()
+                    task_pid_nr()
+                task_cpu()
+            delayacct_blkio_end()
+            atomic_dec()
+            task_rq()
+            psi_ttwu_dequeue()
+            set_task_cpu() <void set_task_cpu (struct task_struct *p, unsigned int new_cpu) at ./core.c:3243>:
+                READ_ONCE()
+                WARN_ON_ONCE()
+                task_on_rq_migrating()
+                lockdep_is_held()
+                task_rq()
+                cpu_online()
+                is_migration_disabled()
+                trace_sched_migrate_task()
+                task_cpu()
+                perf_event_task_migrate()
+            ttwu_queue() <void ttwu_queue (struct task_struct *p, int cpu, int wake_flags) at ./core.c:3908>:
+                cpu_rq()
+                ttwu_queue_wakelist() <bool ttwu_queue_wakelist (struct task_struct *p, int cpu, int wake_flags) at ./core.c:3897>:
+                    sched_feat()
+                    ttwu_queue_cond() <inline bool ttwu_queue_cond (struct task_struct *p, int cpu) at ./core.c:3848>:
+                        scx_allow_ttwu_queue()
+                        cpu_active()
+                        cpumask_test_cpu()
+                        cpus_share_cache() <bool cpus_share_cache (int this_cpu, int that_cpu) at ./core.c:3828>:
+                            per_cpu()
+                        smp_processor_id()
+                        cpu_rq()
+                    sched_clock_cpu()
+                rq_lock()
+                update_rq_clock() <void update_rq_clock (struct rq *rq) at ./core.c:845>:
+                    lockdep_assert_rq_held()
+                    sched_feat()
+                    WARN_ON_ONCE()
+                    sched_clock_cpu()
+                    cpu_of()
+                    scx_rq_clock_update()
+                    update_rq_clock_task() <void update_rq_clock_task (struct rq *rq, s64 delta) at ./core.c:786>:
+                        irqtime_enabled()
+                        irq_time_read()
+                        cpu_of()
+                        delayacct_irq()
+                        static_key_false()
+                        paravirt_steal_clock()
+                        unlikely()
+                        sched_feat()
+                        update_irq_load_avg()
+                        update_rq_clock_pelt()
+                ttwu_do_activate() <void ttwu_do_activate (struct rq *rq, struct task_struct *p, int wake_flags, struct rq_flags *rf) at ./core.c:3647>:
+                    lockdep_assert_rq_held()
+                    delayacct_blkio_end()
+                    atomic_dec()
+                    task_rq()
+                    activate_task() <void activate_task (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2142>:
+                        task_on_rq_migrating()
+                        enqueue_task() <void enqueue_task (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2095>:
+                            update_rq_clock() <void update_rq_clock (struct rq *rq) at ./core.c:845>:
+                                lockdep_assert_rq_held()
+                                sched_feat()
+                                WARN_ON_ONCE()
+                                sched_clock_cpu()
+                                cpu_of()
+                                scx_rq_clock_update()
+                                update_rq_clock_task() <void update_rq_clock_task (struct rq *rq, s64 delta) at ./core.c:786>:
+                                    irqtime_enabled()
+                                    irq_time_read()
+                                    cpu_of()
+                                    delayacct_irq()
+                                    static_key_false()
+                                    paravirt_steal_clock()
+                                    unlikely()
+                                    sched_feat()
+                                    update_irq_load_avg()
+                                    update_rq_clock_pelt()
+                            uclamp_rq_inc() <inline void uclamp_rq_inc (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2064>:
+                                uclamp_is_used()
+                                unlikely()
+                                for_each_clamp_id()
+                                uclamp_rq_inc_id() <inline void uclamp_rq_inc_id (struct rq *rq, struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1675>:
+                                    lockdep_assert_rq_held()
+                                    uclamp_eff_get() <inline struct uclamp_se uclamp_eff_get (struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1640>:
+                                        uclamp_tg_restrict() <inline struct uclamp_se uclamp_tg_restrict (struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1605>:
+                                            task_group_is_autogroup()
+                                            task_group()
+                                            clamp()
+                                            uclamp_se_set()
+                                        unlikely()
+                                    uclamp_idle_reset() <inline void uclamp_idle_reset (struct rq *rq, enum uclamp_id clamp_id, unsigned int clamp_value) at ./core.c:1546>:
+                                        uclamp_rq_set()
+                                    uclamp_rq_get()
+                                    uclamp_rq_set()
+                            psi_enqueue()
+                            sched_info_enqueue()
+                            sched_core_enabled()
+                            sched_core_enqueue() <inline void sched_core_enqueue (struct rq *rq, struct task_struct *p) at ./core.c:526>
+                        WRITE_ONCE()
+                        ASSERT_EXCLUSIVE_WRITER()
+                    wakeup_preempt() <void wakeup_preempt (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2185>:
+                        sched_class_above()
+                        resched_curr() <void resched_curr (struct rq *rq) at ./core.c:1154>:
+                        task_on_rq_queued()
+                        test_tsk_need_resched()
+                        rq_clock_skip_update()
+                    ttwu_do_wakeup() <inline void ttwu_do_wakeup (struct task_struct *p) at ./core.c:3628>:
+                        WRITE_ONCE()
+                        trace_sched_wakeup()
+                    rq_unpin_lock()
+                    rq_repin_lock()
+                rq_unlock()
+            ttwu_stat() <void ttwu_stat (struct task_struct *p, int cpu, int wake_flags) at ./core.c:3589>:
+                schedstat_enabled()
+                this_rq()
+                guard()
+                for_each_domain()
+                cpumask_test_cpu()
+                sched_domain_span()
+    put_task_struct()
+wake_up_state() <int wake_up_state (struct task_struct *p, unsigned int state) at ./core.c:4378>:
+    try_to_wake_up() <int try_to_wake_up (struct task_struct *p, unsigned int state, int wake_flags) at ./core.c:4092>:
+        guard()
+        WARN_ON_ONCE()
+        ttwu_state_match() <__always_inline bool ttwu_state_match (struct task_struct *p, unsigned int state, int *success) at ./core.c:3941>:
+            IS_ENABLED()
+            WARN_ON_ONCE()
+        trace_sched_waking()
+        ttwu_do_wakeup() <inline void ttwu_do_wakeup (struct task_struct *p) at ./core.c:3628>:
+            WRITE_ONCE()
+            trace_sched_wakeup()
+        scoped_guard()
+        smp_mb__after_spinlock()
+        smp_rmb()
+        READ_ONCE()
+        ttwu_runnable() <int ttwu_runnable (struct task_struct *p, int wake_flags) at ./core.c:3708>:
+            task_on_rq_queued()
+            update_rq_clock() <void update_rq_clock (struct rq *rq) at ./core.c:845>:
+                lockdep_assert_rq_held()
+                sched_feat()
+                WARN_ON_ONCE()
+                sched_clock_cpu()
+                cpu_of()
+                scx_rq_clock_update()
+                update_rq_clock_task() <void update_rq_clock_task (struct rq *rq, s64 delta) at ./core.c:786>:
+                    irqtime_enabled()
+                    irq_time_read()
+                    cpu_of()
+                    delayacct_irq()
+                    static_key_false()
+                    paravirt_steal_clock()
+                    unlikely()
+                    sched_feat()
+                    update_irq_load_avg()
+                    update_rq_clock_pelt()
+            enqueue_task() <void enqueue_task (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2095>:
+                update_rq_clock() <void update_rq_clock (struct rq *rq) at ./core.c:845>:
+                    lockdep_assert_rq_held()
+                    sched_feat()
+                    WARN_ON_ONCE()
+                    sched_clock_cpu()
+                    cpu_of()
+                    scx_rq_clock_update()
+                    update_rq_clock_task() <void update_rq_clock_task (struct rq *rq, s64 delta) at ./core.c:786>:
+                        irqtime_enabled()
+                        irq_time_read()
+                        cpu_of()
+                        delayacct_irq()
+                        static_key_false()
+                        paravirt_steal_clock()
+                        unlikely()
+                        sched_feat()
+                        update_irq_load_avg()
+                        update_rq_clock_pelt()
+                uclamp_rq_inc() <inline void uclamp_rq_inc (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2064>:
+                    uclamp_is_used()
+                    unlikely()
+                    for_each_clamp_id()
+                    uclamp_rq_inc_id() <inline void uclamp_rq_inc_id (struct rq *rq, struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1675>:
+                        lockdep_assert_rq_held()
+                        uclamp_eff_get() <inline struct uclamp_se uclamp_eff_get (struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1640>:
+                            uclamp_tg_restrict() <inline struct uclamp_se uclamp_tg_restrict (struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1605>:
+                                task_group_is_autogroup()
+                                task_group()
+                                clamp()
+                                uclamp_se_set()
+                            unlikely()
+                        uclamp_idle_reset() <inline void uclamp_idle_reset (struct rq *rq, enum uclamp_id clamp_id, unsigned int clamp_value) at ./core.c:1546>:
+                            uclamp_rq_set()
+                        uclamp_rq_get()
+                        uclamp_rq_set()
+                psi_enqueue()
+                sched_info_enqueue()
+                sched_core_enabled()
+                sched_core_enqueue() <inline void sched_core_enqueue (struct rq *rq, struct task_struct *p) at ./core.c:526>
+            task_on_cpu()
+            wakeup_preempt() <void wakeup_preempt (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2185>:
+                sched_class_above()
+                resched_curr() <void resched_curr (struct rq *rq) at ./core.c:1154>:
+                task_on_rq_queued()
+                test_tsk_need_resched()
+                rq_clock_skip_update()
+            ttwu_do_wakeup() <inline void ttwu_do_wakeup (struct task_struct *p) at ./core.c:3628>:
+                WRITE_ONCE()
+                trace_sched_wakeup()
+        smp_acquire__after_ctrl_dep()
+        WRITE_ONCE()
+        smp_load_acquire()
+        ttwu_queue_wakelist() <bool ttwu_queue_wakelist (struct task_struct *p, int cpu, int wake_flags) at ./core.c:3897>:
+            sched_feat()
+            ttwu_queue_cond() <inline bool ttwu_queue_cond (struct task_struct *p, int cpu) at ./core.c:3848>:
+                scx_allow_ttwu_queue()
+                cpu_active()
+                cpumask_test_cpu()
+                cpus_share_cache() <bool cpus_share_cache (int this_cpu, int that_cpu) at ./core.c:3828>:
+                    per_cpu()
+                smp_processor_id()
+                cpu_rq()
+            sched_clock_cpu()
+        task_cpu()
+        smp_cond_load_acquire()
+        select_task_rq() <inline int select_task_rq (struct task_struct *p, int cpu, int *wake_flags) at ./core.c:3516>:
+            lockdep_assert_held()
+            is_migration_disabled()
+            cpumask_any()
+            unlikely()
+            is_cpu_allowed() <inline bool is_cpu_allowed (struct task_struct *p, int cpu) at ./core.c:2403>:
+                task_allowed_on_cpu()
+                is_migration_disabled()
+                cpu_online()
+                cpu_active()
+                kthread_is_per_cpu()
+                cpu_dying()
+            select_fallback_rq() <int select_fallback_rq (int cpu, struct task_struct *p) at ./core.c:3447>:
+                cpu_to_node()
+                cpumask_of_node()
+                for_each_cpu()
+                is_cpu_allowed() <inline bool is_cpu_allowed (struct task_struct *p, int cpu) at ./core.c:2403>:
+                    task_allowed_on_cpu()
+                    is_migration_disabled()
+                    cpu_online()
+                    cpu_active()
+                    kthread_is_per_cpu()
+                    cpu_dying()
+                cpuset_cpus_allowed_fallback()
+                set_cpus_allowed_force() <void set_cpus_allowed_force (struct task_struct *p, const struct cpumask *new_mask) at ./core.c:2705>:
+                    scoped_guard()
+                    do_set_cpus_allowed() <void do_set_cpus_allowed (struct task_struct *p, struct affinity_context *ctx) at ./core.c:2695>:
+                        scoped_guard()
+                    kfree_rcu()
+                task_cpu_fallback_mask()
+                BUG()
+                printk_ratelimit()
+                printk_deferred()
+                task_pid_nr()
+            task_cpu()
+        delayacct_blkio_end()
+        atomic_dec()
+        task_rq()
+        psi_ttwu_dequeue()
+        set_task_cpu() <void set_task_cpu (struct task_struct *p, unsigned int new_cpu) at ./core.c:3243>:
+            READ_ONCE()
+            WARN_ON_ONCE()
+            task_on_rq_migrating()
+            lockdep_is_held()
+            task_rq()
+            cpu_online()
+            is_migration_disabled()
+            trace_sched_migrate_task()
+            task_cpu()
+            perf_event_task_migrate()
+        ttwu_queue() <void ttwu_queue (struct task_struct *p, int cpu, int wake_flags) at ./core.c:3908>:
+            cpu_rq()
+            ttwu_queue_wakelist() <bool ttwu_queue_wakelist (struct task_struct *p, int cpu, int wake_flags) at ./core.c:3897>:
+                sched_feat()
+                ttwu_queue_cond() <inline bool ttwu_queue_cond (struct task_struct *p, int cpu) at ./core.c:3848>:
+                    scx_allow_ttwu_queue()
+                    cpu_active()
+                    cpumask_test_cpu()
+                    cpus_share_cache() <bool cpus_share_cache (int this_cpu, int that_cpu) at ./core.c:3828>:
+                        per_cpu()
+                    smp_processor_id()
+                    cpu_rq()
+                sched_clock_cpu()
+            rq_lock()
+            update_rq_clock() <void update_rq_clock (struct rq *rq) at ./core.c:845>:
+                lockdep_assert_rq_held()
+                sched_feat()
+                WARN_ON_ONCE()
+                sched_clock_cpu()
+                cpu_of()
+                scx_rq_clock_update()
+                update_rq_clock_task() <void update_rq_clock_task (struct rq *rq, s64 delta) at ./core.c:786>:
+                    irqtime_enabled()
+                    irq_time_read()
+                    cpu_of()
+                    delayacct_irq()
+                    static_key_false()
+                    paravirt_steal_clock()
+                    unlikely()
+                    sched_feat()
+                    update_irq_load_avg()
+                    update_rq_clock_pelt()
+            ttwu_do_activate() <void ttwu_do_activate (struct rq *rq, struct task_struct *p, int wake_flags, struct rq_flags *rf) at ./core.c:3647>:
+                lockdep_assert_rq_held()
+                delayacct_blkio_end()
+                atomic_dec()
+                task_rq()
+                activate_task() <void activate_task (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2142>:
+                    task_on_rq_migrating()
+                    enqueue_task() <void enqueue_task (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2095>:
+                        update_rq_clock() <void update_rq_clock (struct rq *rq) at ./core.c:845>:
+                            lockdep_assert_rq_held()
+                            sched_feat()
+                            WARN_ON_ONCE()
+                            sched_clock_cpu()
+                            cpu_of()
+                            scx_rq_clock_update()
+                            update_rq_clock_task() <void update_rq_clock_task (struct rq *rq, s64 delta) at ./core.c:786>:
+                                irqtime_enabled()
+                                irq_time_read()
+                                cpu_of()
+                                delayacct_irq()
+                                static_key_false()
+                                paravirt_steal_clock()
+                                unlikely()
+                                sched_feat()
+                                update_irq_load_avg()
+                                update_rq_clock_pelt()
+                        uclamp_rq_inc() <inline void uclamp_rq_inc (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2064>:
+                            uclamp_is_used()
+                            unlikely()
+                            for_each_clamp_id()
+                            uclamp_rq_inc_id() <inline void uclamp_rq_inc_id (struct rq *rq, struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1675>:
+                                lockdep_assert_rq_held()
+                                uclamp_eff_get() <inline struct uclamp_se uclamp_eff_get (struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1640>:
+                                    uclamp_tg_restrict() <inline struct uclamp_se uclamp_tg_restrict (struct task_struct *p, enum uclamp_id clamp_id) at ./core.c:1605>:
+                                        task_group_is_autogroup()
+                                        task_group()
+                                        clamp()
+                                        uclamp_se_set()
+                                    unlikely()
+                                uclamp_idle_reset() <inline void uclamp_idle_reset (struct rq *rq, enum uclamp_id clamp_id, unsigned int clamp_value) at ./core.c:1546>:
+                                    uclamp_rq_set()
+                                uclamp_rq_get()
+                                uclamp_rq_set()
+                        psi_enqueue()
+                        sched_info_enqueue()
+                        sched_core_enabled()
+                        sched_core_enqueue() <inline void sched_core_enqueue (struct rq *rq, struct task_struct *p) at ./core.c:526>
+                    WRITE_ONCE()
+                    ASSERT_EXCLUSIVE_WRITER()
+                wakeup_preempt() <void wakeup_preempt (struct rq *rq, struct task_struct *p, int flags) at ./core.c:2185>:
+                    sched_class_above()
+                    resched_curr() <void resched_curr (struct rq *rq) at ./core.c:1154>:
+                    task_on_rq_queued()
+                    test_tsk_need_resched()
+                    rq_clock_skip_update()
+                ttwu_do_wakeup() <inline void ttwu_do_wakeup (struct task_struct *p) at ./core.c:3628>:
+                    WRITE_ONCE()
+                    trace_sched_wakeup()
+                rq_unpin_lock()
+                rq_repin_lock()
+            rq_unlock()
+        ttwu_stat() <void ttwu_stat (struct task_struct *p, int cpu, int wake_flags) at ./core.c:3589>:
+            schedstat_enabled()
+            this_rq()
+            guard()
+            for_each_domain()
+            cpumask_test_cpu()
+            sched_domain_span()
+walk_tg_tree_from() <int walk_tg_tree_from (struct task_group *from, tg_visitor down, tg_visitor up, void *data) at ./core.c:1410>:
+    list_for_each_entry_rcu()
