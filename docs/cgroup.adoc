@@ -1,4 +1,28 @@
-= cgroup subsystem architecture
+= cgroup subsystem architecture (`kernel/cgroup`)
+
+== cgroup
+=== cgroup.h
+- common: cgroup_get, cgroup_name, cgroup_ino, cgroup_path_from_kern_fs_id, cgroup_psi_enabled
+- life: cgroup_init_early,
+- account: cgroup_account_cputime_field, cpu_account_field, task_dfl_cgroup, task_css_set_check
+- hierarchical: cgroup_ancestor, cgroup_parent
+- forking: cgroup_can_fork, cgroup_cancel_fork, cgroup_post_fork
+- cgroup_enter_frozen, cgroup_fork
+- concurrency: cgroup_lock, cgroup_name, cgroup_tryget, cgroup_unlock
+- cgroup_stats: cgroupstats_build
+- cgroup_subsystem_state: css_is_dying, css_is_online, css_is_self
+- pr_cont_cgroup:
+- seq_cft, seq_css, sock_cgroup_ptr, task_cgroup, task_css_is_root, task_get_css, task_under_cgroup_hierarchy
+- sock_cgroup_data: cgroup_sk_alloc, cgroup_sk_clone, cgroup_sk_free
+
+== unknown
+- cgroup_bpf_get?
+- cgroup_bf_put
+- cgroup_put
+- css_put
+- container_of
+
+cgroups have: id, accounting, task_cgroup?,
 
 [source, c]
 ----
